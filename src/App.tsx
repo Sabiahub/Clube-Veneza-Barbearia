@@ -40,9 +40,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-amber-500/30">
       <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between gap-4">
           <div className="flex items-center shrink-0">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-10 sm:h-14 w-auto" />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-16 sm:h-20 w-auto" />
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <a
@@ -305,6 +305,41 @@ export default function App() {
         </div>
       </section>
 
+      {/* CTA SECTION */}
+      <section className="py-20 relative overflow-hidden bg-zinc-950 border-t border-zinc-800/50">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.08)_0%,transparent_60%)]"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+            Pronto para renovar seu visual?
+          </h2>
+          <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
+            Agende seu horário com um de nossos especialistas em poucos segundos. Escolha a melhor plataforma para você.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://cashbarber.com.br/venezabarbearia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105"
+            >
+              <Calendar className="w-4 h-4" />
+              Agendar Online
+            </a>
+            <a
+              href="https://wa.me/49999277782"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 hover:scale-105"
+            >
+              <MessageCircle className="w-4 h-4 text-green-500" />
+              Agendar no WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* PROFESSIONALS */}
       <section className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -327,12 +362,6 @@ export default function App() {
                         alt={prof.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
                       />
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-zinc-950/80 flex flex-col items-center justify-center p-6 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
-                        <p className="text-zinc-300 text-sm text-center transform translate-y-4 group-hover/card:translate-y-0 transition-transform duration-300">
-                          {prof.description}
-                        </p>
-                      </div>
                     </div>
                     <div className="p-5 text-center bg-zinc-900 relative z-10 border-t border-zinc-800/50 group-hover/card:bg-zinc-800/80 transition-colors">
                       <h3 className="font-serif text-xl font-bold text-white">{prof.name}</h3>
@@ -360,7 +389,7 @@ export default function App() {
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start">
               <div className="mb-6">
-                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
+                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-36 sm:h-44 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
               </div>
               <p className="text-zinc-400 text-sm max-w-sm mx-auto md:mx-0">
                 O seu estilo sempre impecável. Assine nossos planos mensais e desfrute de serviços exclusivos com atendimento premium.
