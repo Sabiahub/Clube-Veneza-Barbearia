@@ -1,5 +1,6 @@
 import { Location, Plan, Professional, Service } from './types';
-import { Scissors, Zap, Sparkles, Droplets, Paintbrush, PlusSquare, Smile, SprayCan } from 'lucide-react';
+import { Scissors, Zap, Sparkles, Droplets, Paintbrush, PlusSquare, Smile, SprayCan, Sun, Wind } from 'lucide-react';
+
 
 const BASE_CHECKOUT_URL = 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza';
 
