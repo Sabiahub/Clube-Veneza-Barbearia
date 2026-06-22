@@ -225,6 +225,16 @@ export default function App() {
                   Planos Disponíveis
                 </h2>
                 <p className="text-amber-500 font-medium relative z-10">Unidade: {selectedLocation.name}</p>
+                {selectedLocation.mapsUrl && (
+                  <a
+                    href={selectedLocation.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs sm:text-sm font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300 uppercase tracking-wider relative z-10"
+                  >
+                    Como chegar <ChevronRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
