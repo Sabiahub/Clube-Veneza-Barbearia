@@ -318,26 +318,26 @@ export const professionals: Professional[] = [
   {
     name: 'Daniel',
     description: 'Sem observação',
-    imageUrl: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop'
+    imageUrl: '/daniel.png'
   },
   {
     name: 'Jackson',
     description: 'Sem observação',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'
+    imageUrl: '/jackson.jpg'
   },
   {
     name: 'Kauã',
     description: 'Sem observação',
-    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop'
+    imageUrl: '/kaua.jpg'
   },
   {
     name: 'Reginaldo',
     description: 'Sem observação',
-    imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop'
+    imageUrl: '/reginaldo.jpg'
   },
   {
     name: 'Will',
     description: 'Sem observação',
-    imageUrl: 'https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=200&auto=format&fit=crop'
+    imageUrl: '/will.png'
   }
 ];
