@@ -1,6 +1,23 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Adam';
+  src: url('/fonts/Adam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eight One';
+  src: url('/fonts/Eight One.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: "Adam", sans-serif;
+  --font-eightone: "Eight One", sans-serif;
+  --font-adam: "Adam", sans-serif;
 }
+

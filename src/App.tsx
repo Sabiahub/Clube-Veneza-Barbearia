@@ -41,9 +41,9 @@ export default function App() {
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-amber-500/30">
       {/* HEADER */}
       <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-center md:justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center md:justify-between">
           <div className="flex items-center">
-            <img src="/logo.png" alt="Veneza Barbearia" className="h-10 w-auto" />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-16 w-auto" />
           </div>
           <div className="hidden md:block">
             {/* Empty space for desktop balance since we removed the link */}
@@ -71,8 +71,9 @@ export default function App() {
             <span className="text-amber-500 uppercase tracking-[0.2em] text-sm font-semibold mb-4 block">
               Bem-vindo ao
             </span>
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Clube Veneza
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-none">
+              <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
+              <span className="font-eightone text-amber-500 text-2xl sm:text-3xl lg:text-4xl block mt-3 lowercase tracking-wider">barbearia</span>
             </h1>
             <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
               O seu estilo sempre impecável. Assine nossos planos mensais, escolha sua unidade favorita e desfrute de serviços ilimitados com atendimento premium.
@@ -321,7 +322,7 @@ export default function App() {
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start">
               <div className="mb-6">
-                <img src="/logo.png" alt="Veneza Barbearia" className="h-16 w-auto opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
               </div>
               <p className="text-zinc-400 text-sm max-w-sm mx-auto md:mx-0">
                 O seu estilo sempre impecável. Assine nossos planos mensais e desfrute de serviços exclusivos com atendimento premium.
