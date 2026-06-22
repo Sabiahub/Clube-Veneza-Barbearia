@@ -159,7 +159,7 @@ export default function App() {
                         </motion.div>
                       </h3>
                       <div className="overflow-hidden">
-                        <div className="transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
+                        <div className="translate-y-0 opacity-100 md:transform md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
                           <p className="text-zinc-300 text-sm flex items-start gap-2">
                             <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
                             {loc.address}
