@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle2, ChevronRight, ArrowLeft, Instagram, ChevronLeft } from 'lucide-react';
+import { MapPin, CheckCircle2, ChevronRight, ArrowLeft, Instagram, ChevronLeft, Calendar, MessageCircle } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { locations, plans, servicesList, professionals } from './data';
 import type { Location, Plan } from './types';
@@ -39,14 +39,31 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-amber-500/30">
-      {/* HEADER */}
       <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center md:justify-between">
-          <div className="flex items-center">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-16 w-auto" />
+        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between gap-4">
+          <div className="flex items-center shrink-0">
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-10 sm:h-14 w-auto" />
           </div>
-          <div className="hidden md:block">
-            {/* Empty space for desktop balance since we removed the link */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href="https://cashbarber.com.br/venezabarbearia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-amber-500 hover:bg-amber-400 text-zinc-950 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:shadow-amber-500/25 shrink-0"
+            >
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Agendar Online</span>
+              <span className="sm:hidden">Agendar</span>
+            </a>
+            <a
+              href="https://wa.me/49999277782"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shrink-0"
+            >
+              <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </header>
@@ -105,11 +122,18 @@ export default function App() {
             <div className="overflow-hidden" ref={locationsRef}>
               <div className="flex gap-6 py-4 px-2">
                 {locations.map((loc) => (
-                  <motion.button
+                  <motion.div
                     key={loc.id}
                     whileHover={{ y: -5 }}
                     onClick={() => handleLocationSelect(loc)}
-                    className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        handleLocationSelect(loc);
+                      }
+                    }}
+                    className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer
                       ${selectedLocation?.id === loc.id 
                         ? 'border-amber-500 ring-1 ring-amber-500/50 scale-[1.02]' 
                         : 'border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:shadow-xl hover:shadow-amber-500/10'
@@ -121,7 +145,7 @@ export default function App() {
                         alt={loc.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
                     </div>
                     
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
@@ -134,14 +158,28 @@ export default function App() {
                           <CheckCircle2 className="w-5 h-5" />
                         </motion.div>
                       </h3>
-                      <div className="overflow-hidden h-6">
-                        <p className="text-zinc-300 text-sm flex items-start gap-2 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                          <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
-                          {loc.address}
-                        </p>
+                      <div className="overflow-hidden">
+                        <div className="transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
+                          <p className="text-zinc-300 text-sm flex items-start gap-2">
+                            <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
+                            {loc.address}
+                          </p>
+                          {loc.mapsUrl && (
+                            <a
+                              href={loc.mapsUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300"
+                            >
+                              Como chegar
+                              <ChevronRight className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </motion.button>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -334,6 +372,8 @@ export default function App() {
               <h4 className="text-white font-bold mb-4 font-serif">Acesso Rápido</h4>
               <ul className="space-y-2 text-zinc-400 text-sm">
                 <li><a href="#locations" className="hover:text-amber-500 transition-colors">Nossas Unidades</a></li>
+                <li><a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Agendamento Online (Cashbarber)</a></li>
+                <li><a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Agendamento WhatsApp</a></li>
               </ul>
             </div>
 

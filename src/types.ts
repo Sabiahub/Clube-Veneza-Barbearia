@@ -4,6 +4,7 @@ export interface Location {
   address: string;
   imageUrl: string;
   planIds: string[];
+  mapsUrl?: string;
 }
 
 export interface Plan {

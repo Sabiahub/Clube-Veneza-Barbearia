@@ -238,6 +238,7 @@ export const locations: Location[] = [
     address: 'Av. Nereu Ramos, 1271d - Palmital, Chapecó - SC, 89814-247',
     imageUrl: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop',
     planIds: mainPlansIds,
+    mapsUrl: 'https://share.google/XwEJmQZq51X5kIQOr',
   },
   {
     id: 'loc-center',
@@ -245,6 +246,7 @@ export const locations: Location[] = [
     address: 'R. Rui Barbosa, 441E - Centro, Chapecó - SC, 89802-140',
     imageUrl: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop',
     planIds: mainPlansIds,
+    mapsUrl: 'https://share.google/guET0INTzM3oeYssR',
   },
   {
     id: 'loc-avenida',
@@ -252,6 +254,7 @@ export const locations: Location[] = [
     address: 'Av. Getúlio Dorneles Vargas, 3430 - Centro, Chapecó - SC, 89802-001',
     imageUrl: 'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=800&auto=format&fit=crop',
     planIds: mainPlansIds,
+    mapsUrl: 'https://share.google/x7u0gNG0E4ANDmXNI',
   },
   {
     id: 'loc-belavista',
@@ -259,6 +262,7 @@ export const locations: Location[] = [
     address: 'R. Afonso Pena - Bela Vista, Chapecó - SC, 89804-111',
     imageUrl: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop',
     planIds: belaVistaPlansIds,
+    mapsUrl: 'https://share.google/msOuWTOYJT5hseJ4w',
   }
 ];
 
