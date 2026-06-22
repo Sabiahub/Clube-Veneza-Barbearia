@@ -1,4 +1,5 @@
-import { Location, Plan, Professional } from './types';
+import { Location, Plan, Professional, Service } from './types';
+import { Scissors, Zap, Sparkles, Droplets, Paintbrush, PlusSquare, Smile, SprayCan } from 'lucide-react';
 
 const BASE_CHECKOUT_URL = 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza';
 
@@ -300,18 +301,21 @@ export const locations: Location[] = [
   }
 ];
 
-export const servicesList = [
-  'Corte',
-  'Corte Máquina',
-  'Corte Infantil',
-  'Barba Express (corte/modelagem de barba)',
-  'Barboterapia',
-  'Sobrancelha Navalha (design de sobrancelha)',
-  'Hidratação',
-  'Pigmentação (coloração de cabelo/barba)',
-  'Luzes',
-  'Camuflagem',
-  'Selagem'
+export const servicesList: Service[] = [
+  { name: 'CORTE', icon: Scissors },
+  { name: 'BARBA', icon: Zap },
+  { name: 'COMBO', icon: PlusSquare },
+  { name: 'BARBA RÁPIDA', icon: Zap },
+  { name: 'CORTE RASPADO', icon: Scissors },
+  { name: 'DEPILAÇÃO NARIZ', icon: Smile },
+  { name: 'DEPILAÇÃO NARIZ ORELHA', icon: Smile },
+  { name: 'LIMPEZA DE PELE', icon: Sparkles },
+  { name: 'HIDRATAÇÃO', icon: Droplets },
+  { name: 'LUZES PLATINADO', icon: Sun },
+  { name: 'PEZINHO', icon: Scissors },
+  { name: 'PIGMENTAÇÃO DA BARBA', icon: Paintbrush },
+  { name: 'RELAXAMENTO CAPILAR', icon: Wind },
+  { name: 'SOBRANCELHA', icon: Scissors }
 ];
 
 export const professionals: Professional[] = [

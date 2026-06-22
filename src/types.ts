@@ -21,3 +21,8 @@ export interface Professional {
   imageUrl: string;
   description?: string;
 }
+
+export interface Service {
+  name: string;
+  icon: any; // Lucide icon component
+}
