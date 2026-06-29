@@ -30,10 +30,10 @@ function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }
                   onSelect(loc);
                 }
               }}
-              className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer
+              className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer backdrop-blur-md
                 ${selectedId === loc.id 
-                  ? 'border-amber-500 ring-1 ring-amber-500/50 scale-[1.02]' 
-                  : 'border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:shadow-xl hover:shadow-amber-500/10'
+                  ? 'border-amber-500/50 bg-zinc-900/40 shadow-[0_0_15px_rgba(245,158,11,0.15)] scale-[1.02]' 
+                  : 'border-zinc-800/50 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-700/80 hover:shadow-xl'
                 }`}
             >
               <div className="aspect-[16/9] w-full overflow-hidden">
@@ -50,7 +50,7 @@ function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }
                   {loc.name}
                   <motion.div
                     animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
-                    className="text-amber-500 bg-amber-500/10 p-1.5 rounded-full"
+                    className="text-amber-500 bg-zinc-900/50 backdrop-blur-sm border border-amber-500/30 p-1.5 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.1)]"
                   >
                     <CheckCircle2 className="w-5 h-5" />
                   </motion.div>
@@ -67,7 +67,7 @@ function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300"
+                        className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-sm border border-zinc-700/50 hover:border-amber-500/50 text-xs font-bold text-zinc-300 hover:text-amber-400 hover:shadow-[0_0_10px_rgba(245,158,11,0.1)] transition-all duration-300"
                       >
                         Como chegar
                         <ChevronRight className="w-3 h-3" />
@@ -82,10 +82,10 @@ function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }
       </div>
       
       {/* Navigation Arrows (Desktop Only) */}
-      <button onClick={scrollPrev} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+      <button onClick={scrollPrev} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-500/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(245,158,11,0.15)]">
         <ChevronLeft className="w-5 h-5" />
       </button>
-      <button onClick={scrollNext} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+      <button onClick={scrollNext} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-500/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(245,158,11,0.15)]">
         <ChevronRight className="w-5 h-5" />
       </button>
     </div>
@@ -146,7 +146,7 @@ export default function App() {
               href="https://cashbarber.com.br/venezabarbearia"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-amber-500 hover:bg-amber-400 text-zinc-950 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:shadow-amber-500/25 shrink-0"
+              className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-amber-500/50 text-zinc-200 hover:text-amber-400 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:shadow-[0_0_15px_rgba(245,158,11,0.15)] shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Agendar Online</span>
@@ -196,7 +196,7 @@ export default function App() {
               onClick={() => {
                 document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase tracking-wide text-sm"
+              className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-amber-500/50 text-zinc-200 hover:text-amber-400 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase tracking-wide text-sm hover:shadow-[0_0_20px_rgba(245,158,11,0.15)]"
             >
               Quero Assinar
             </button>
@@ -260,7 +260,7 @@ export default function App() {
                     href={selectedLocation.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs sm:text-sm font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300 uppercase tracking-wider relative z-10"
+                    className="mt-4 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-amber-500/50 text-xs sm:text-sm font-bold text-zinc-300 hover:text-amber-400 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)] transition-all duration-300 uppercase tracking-wider relative z-10"
                   >
                     Como chegar <ChevronRight className="w-3.5 h-3.5" />
                   </a>
@@ -311,7 +311,7 @@ export default function App() {
                         href={plan.checkoutUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-4 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-semibold flex items-center justify-center gap-2 transition-all mt-auto"
+                        className="w-full py-4 rounded-xl bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-amber-500/50 text-zinc-200 hover:text-amber-400 hover:shadow-[0_0_15px_rgba(245,158,11,0.1)] font-semibold flex items-center justify-center gap-2 transition-all mt-auto"
                       >
                         Assinar Agora <ChevronRight className="w-4 h-4" />
                       </a>
@@ -336,7 +336,7 @@ export default function App() {
             {servicesList.map((service, idx) => {
               const IconComponent = service.icon;
               return (
-              <div key={idx} className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-amber-500/50 transition-colors group cursor-pointer h-32 hover:shadow-lg hover:shadow-amber-500/5">
+              <div key={idx} className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-amber-500/40 hover:bg-zinc-800/60 transition-all duration-300 group cursor-pointer h-32 hover:shadow-[0_0_15px_rgba(245,158,11,0.05)]">
                 <IconComponent className="w-8 h-8 text-amber-500/50 mb-3 group-hover:text-amber-500 transition-colors group-hover:scale-110 duration-300" />
                 <span className="text-sm font-semibold text-zinc-200">{service.name}</span>
               </div>
@@ -362,7 +362,7 @@ export default function App() {
               href="https://cashbarber.com.br/venezabarbearia"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105"
+              className="w-full sm:w-auto bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-amber-500/50 text-zinc-200 hover:text-amber-400 font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:scale-105"
             >
               <Calendar className="w-4 h-4" />
               Agendar Online
@@ -371,7 +371,7 @@ export default function App() {
               href="https://wa.me/49999277782"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 hover:scale-105"
+              className="w-full sm:w-auto bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 hover:scale-105"
             >
               <MessageCircle className="w-4 h-4 text-green-500" />
               Agendar no WhatsApp
@@ -427,10 +427,10 @@ export default function App() {
               {/* Navigation Arrows (Desktop Only) */}
               {professionals.filter((prof) => prof.locationId === selectedLocation.id).length > 4 && (
                 <>
-                  <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+                  <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-500/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(245,158,11,0.15)]">
                     <ChevronLeft className="w-5 h-5" />
                   </button>
-                  <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+                  <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-500/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(245,158,11,0.15)]">
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 </>
