@@ -113,7 +113,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/9.jpeg',
+    imageUrl: '/plano-cabelo-barba-belavista.jpg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/vip-combo-horario-fixo-somente-unidade-b/42'
   },
   {
@@ -133,7 +133,7 @@ export const plans: Plan[] = [
     id: 'bv-corte-ili',
     name: 'CORTE ILIMITADO (SOMENTE UNIDADE BELA VISTA)',
     price: 99.90,
-    description: 'Corte sua coroa quantas vezes seu cabelo crescer.',
+    description: 'Corte seu cabelo quantas vezes quiser o dia que quiser.',
     features: [
       'Corte ILIMITADO',
       'Sem taxa de adesão',
@@ -166,7 +166,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-cabelo-barba-belavista.jpg',
+    imageUrl: '/9.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/cabelo-e-barba-ilimitado-somente-unidade/26'
   },
   {
