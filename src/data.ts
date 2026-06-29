@@ -97,7 +97,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/8.jpeg',
+    imageUrl: '/plano-careca-real.png',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-maquina/23'
   },
 
@@ -113,7 +113,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/11.jpeg',
+    imageUrl: '/9.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/vip-combo-horario-fixo-somente-unidade-b/42'
   },
   {
@@ -179,7 +179,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/16.jpeg',
+    imageUrl: '/plano-careca.jpg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/barba-ilimitado-somente-unidade-bela-vis/25'
   },
   {
@@ -218,7 +218,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/8.jpeg',
+    imageUrl: '/plano-careca-real.png',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-unidade-bela-vista/41'
   }
 ];
@@ -236,7 +236,7 @@ export const locations: Location[] = [
     id: 'loc-sul',
     name: 'Unidade Sul',
     address: 'Av. Nereu Ramos, 1271d - Palmital, Chapecó - SC, 89814-247',
-    imageUrl: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/unidade-sul-nova.jpeg',
     planIds: mainPlansIds,
     mapsUrl: 'https://share.google/XwEJmQZq51X5kIQOr',
   },
@@ -252,7 +252,7 @@ export const locations: Location[] = [
     id: 'loc-avenida',
     name: 'Unidade Avenida',
     address: 'Av. Getúlio Dorneles Vargas, 3430 - Centro, Chapecó - SC, 89802-001',
-    imageUrl: 'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/2.jpeg',
     planIds: mainPlansIds,
     mapsUrl: 'https://share.google/x7u0gNG0E4ANDmXNI',
   },
