@@ -20,6 +20,7 @@ export interface Plan {
 export interface Professional {
   name: string;
   imageUrl: string;
+  locationId: string;
   description?: string;
 }
 

@@ -17,7 +17,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/10.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/black-cabelo-barba-e-sobrancelha-ilimita/10'
   },
   {
@@ -31,7 +31,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/3.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/premium-corte-de-cabelo-sobrancelha-ilim/9'
   },
   {
@@ -44,7 +44,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-corte.jpg',
+    imageUrl: '/2.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/week-corte-de-cabelo-terca-a-quinta/20'
   },
   {
@@ -57,7 +57,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-barba.jpg',
+    imageUrl: '/5.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/barba-ilimitado/6'
   },
   {
@@ -71,7 +71,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/6.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/plano-duo-corte-de-cabelo-sobrancelha-2-/21'
   },
   {
@@ -84,7 +84,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-corte.jpg',
+    imageUrl: '/7.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/plano-one-corte-de-cabelo-1-corte-por-me/22'
   },
   {
@@ -97,7 +97,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-careca.jpg',
+    imageUrl: '/8.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-maquina/23'
   },
 
@@ -113,7 +113,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/11.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/vip-combo-horario-fixo-somente-unidade-b/42'
   },
   {
@@ -126,7 +126,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/12.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/smart-2-cortes-e-2-barbas-somente-unidad/39'
   },
   {
@@ -139,7 +139,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-corte.jpg',
+    imageUrl: '/13.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/corte-ilimitado-somente-unidade-bela-vis/24'
   },
   {
@@ -152,7 +152,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-corte.jpg',
+    imageUrl: '/14.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/week-segunda-a-quarta-somente-unidade-be/37'
   },
   {
@@ -166,7 +166,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/15.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/cabelo-e-barba-ilimitado-somente-unidade/26'
   },
   {
@@ -179,7 +179,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-barba.jpg',
+    imageUrl: '/16.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/barba-ilimitado-somente-unidade-bela-vis/25'
   },
   {
@@ -205,7 +205,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/plano-corte.jpg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/combo-one-1-corte-barba-por-mes-somente-/45'
   },
   {
@@ -218,7 +218,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-careca.jpg',
+    imageUrl: '/8.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-unidade-bela-vista/41'
   }
 ];
@@ -285,20 +285,20 @@ export const servicesList: Service[] = [
 
 export const professionals: Professional[] = [
   // Avenida
-  { name: 'Jesus', description: '', imageUrl: '/JESUS.webp' },
-  { name: 'Lucas', description: '', imageUrl: '/LUCAS.webp' },
-  { name: 'Rafa', description: '', imageUrl: '/RAFA.webp' },
+  { name: 'Jesus', description: '', imageUrl: '/JESUS.webp', locationId: 'loc-avenida' },
+  { name: 'Lucas', description: '', imageUrl: '/LUCAS.webp', locationId: 'loc-avenida' },
+  { name: 'Rafa', description: '', imageUrl: '/RAFA.webp', locationId: 'loc-avenida' },
   // Bela Vista
-  { name: 'Alexandre', description: '', imageUrl: '/ALEXANDRE.webp' },
-  { name: 'Diego', description: '', imageUrl: '/DIEGO.webp' },
-  { name: 'Iago', description: '', imageUrl: '/IAGO.webp' },
+  { name: 'Alexandre', description: '', imageUrl: '/ALEXANDRE.webp', locationId: 'loc-belavista' },
+  { name: 'Diego', description: '', imageUrl: '/DIEGO.webp', locationId: 'loc-belavista' },
+  { name: 'Iago', description: '', imageUrl: '/IAGO.webp', locationId: 'loc-belavista' },
   // Center
-  { name: 'Hasus', description: '', imageUrl: '/HASUS.webp' },
-  { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp' },
-  { name: 'Vini', description: '', imageUrl: '/VINI.webp' },
+  { name: 'Hasus', description: '', imageUrl: '/HASUS.webp', locationId: 'loc-center' },
+  { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp', locationId: 'loc-center' },
+  { name: 'Vini', description: '', imageUrl: '/VINI.webp', locationId: 'loc-center' },
   // Sul
-  { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp' },
-  { name: 'Enzo', description: '', imageUrl: '/ENZO.webp' },
-  { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp' },
-  { name: 'Líder', description: '', imageUrl: '/LÍDER.webp' }
+  { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp', locationId: 'loc-sul' },
+  { name: 'Enzo', description: '', imageUrl: '/ENZO.webp', locationId: 'loc-sul' },
+  { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp', locationId: 'loc-sul' },
+  { name: 'Líder', description: '', imageUrl: '/LÍDER.webp', locationId: 'loc-sul' }
 ];

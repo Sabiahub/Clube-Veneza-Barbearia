@@ -5,11 +5,99 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { locations, plans, servicesList, professionals } from './data';
 import type { Location, Plan } from './types';
 
+interface UnitSelectorProps {
+  emblaRef: any;
+  selectedId: string | undefined;
+  onSelect: (loc: Location) => void;
+  scrollPrev: () => void;
+  scrollNext: () => void;
+}
+
+function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }: UnitSelectorProps) {
+  return (
+    <div className="relative max-w-6xl mx-auto group">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-6 py-4 px-2">
+          {locations.map((loc) => (
+            <motion.div
+              key={loc.id}
+              whileHover={{ y: -5 }}
+              onClick={() => onSelect(loc)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  onSelect(loc);
+                }
+              }}
+              className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer
+                ${selectedId === loc.id 
+                  ? 'border-amber-500 ring-1 ring-amber-500/50 scale-[1.02]' 
+                  : 'border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:shadow-xl hover:shadow-amber-500/10'
+                }`}
+            >
+              <div className="aspect-[16/9] w-full overflow-hidden">
+                <img
+                  src={loc.imageUrl}
+                  alt={loc.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
+              </div>
+              
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <h3 className="font-serif text-2xl font-bold text-white mb-2 flex items-center justify-between">
+                  {loc.name}
+                  <motion.div
+                    animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
+                    className="text-amber-500 bg-amber-500/10 p-1.5 rounded-full"
+                  >
+                    <CheckCircle2 className="w-5 h-5" />
+                  </motion.div>
+                </h3>
+                <div className="overflow-hidden">
+                  <div className="translate-y-0 opacity-100 md:transform md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
+                    <p className="text-zinc-300 text-sm flex items-start gap-2">
+                      <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
+                      {loc.address}
+                    </p>
+                    {loc.mapsUrl && (
+                      <a
+                        href={loc.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300"
+                      >
+                        Como chegar
+                        <ChevronRight className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Navigation Arrows (Desktop Only) */}
+      <button onClick={scrollPrev} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button onClick={scrollNext} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
+}
+
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const plansSectionRef = useRef<HTMLElement>(null);
   
   const [locationsRef, locationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
+  const [teamLocationsRef, teamLocationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
   const [teamRef, teamApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
 
   const scrollPrevLocations = useCallback(() => {
@@ -18,6 +106,13 @@ export default function App() {
   const scrollNextLocations = useCallback(() => {
     if (locationsApi) locationsApi.scrollNext()
   }, [locationsApi])
+
+  const scrollPrevTeamLocations = useCallback(() => {
+    if (teamLocationsApi) teamLocationsApi.scrollPrev()
+  }, [teamLocationsApi])
+  const scrollNextTeamLocations = useCallback(() => {
+    if (teamLocationsApi) teamLocationsApi.scrollNext()
+  }, [teamLocationsApi])
 
   const scrollPrevTeam = useCallback(() => {
     if (teamApi) teamApi.scrollPrev()
@@ -114,84 +209,17 @@ export default function App() {
             <span className="text-amber-500/50 font-serif text-6xl lg:text-8xl absolute left-1/2 -translate-x-1/2 -top-4 opacity-20 pointer-events-none">
               01
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">Escolha sua Unidade</h2>
+            <h2 className="font-adam text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">Escolha sua Unidade</h2>
             <p className="text-zinc-400 relative z-10">Selecione onde você deseja utilizar os benefícios do seu plano.</p>
           </div>
 
-          <div className="relative max-w-6xl mx-auto group">
-            <div className="overflow-hidden" ref={locationsRef}>
-              <div className="flex gap-6 py-4 px-2">
-                {locations.map((loc) => (
-                  <motion.div
-                    key={loc.id}
-                    whileHover={{ y: -5 }}
-                    onClick={() => handleLocationSelect(loc)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        handleLocationSelect(loc);
-                      }
-                    }}
-                    className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer
-                      ${selectedLocation?.id === loc.id 
-                        ? 'border-amber-500 ring-1 ring-amber-500/50 scale-[1.02]' 
-                        : 'border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:shadow-xl hover:shadow-amber-500/10'
-                      }`}
-                  >
-                    <div className="aspect-[16/9] w-full overflow-hidden">
-                      <img
-                        src={loc.imageUrl}
-                        alt={loc.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
-                    </div>
-                    
-                    <div className="absolute inset-0 flex flex-col justify-end p-6">
-                      <h3 className="font-serif text-2xl font-bold text-white mb-2 flex items-center justify-between">
-                        {loc.name}
-                        <motion.div
-                          animate={{ opacity: selectedLocation?.id === loc.id ? 1 : 0 }}
-                          className="text-amber-500 bg-amber-500/10 p-1.5 rounded-full"
-                        >
-                          <CheckCircle2 className="w-5 h-5" />
-                        </motion.div>
-                      </h3>
-                      <div className="overflow-hidden">
-                        <div className="translate-y-0 opacity-100 md:transform md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
-                          <p className="text-zinc-300 text-sm flex items-start gap-2">
-                            <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
-                            {loc.address}
-                          </p>
-                          {loc.mapsUrl && (
-                            <a
-                              href={loc.mapsUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500 border border-amber-500/20 hover:border-amber-500 text-xs font-bold text-amber-500 hover:text-zinc-950 transition-all duration-300"
-                            >
-                              Como chegar
-                              <ChevronRight className="w-3 h-3" />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Navigation Arrows (Desktop Only) */}
-            <button onClick={scrollPrevLocations} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button onClick={scrollNextLocations} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+          <UnitSelector 
+            emblaRef={locationsRef} 
+            selectedId={selectedLocation?.id} 
+            onSelect={handleLocationSelect} 
+            scrollPrev={scrollPrevLocations} 
+            scrollNext={scrollNextLocations} 
+          />
         </div>
       </section>
 
@@ -321,7 +349,7 @@ export default function App() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.08)_0%,transparent_60%)]"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="font-adam text-3xl sm:text-4xl font-bold text-white mb-4">
             Pronto para renovar seu visual?
           </h2>
           <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
@@ -353,42 +381,64 @@ export default function App() {
       {/* PROFESSIONALS */}
       <section className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Nossa Equipe</h2>
+          <div className="text-center mb-12">
+            <h2 className="font-adam text-3xl md:text-4xl font-bold text-white mb-4">Nossa Equipe</h2>
             <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
           </div>
-          
-          <div className="relative max-w-6xl mx-auto group">
-            <div className="overflow-hidden" ref={teamRef}>
-              <div className="flex gap-6 py-4 px-2">
-                {professionals.map((prof, idx) => (
-                  <div 
-                    key={idx} 
-                    className="flex-[0_0_70%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_22%] min-w-0 bg-zinc-900/80 border border-zinc-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-colors group/card relative shadow-md"
-                  >
-                    <div className="aspect-[4/5] w-full overflow-hidden relative">
-                      <img
-                        src={prof.imageUrl}
-                        alt={prof.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                      />
-                    </div>
-                    <div className="p-5 text-center bg-zinc-900 relative z-10 border-t border-zinc-800/50 group-hover/card:bg-zinc-800/80 transition-colors">
-                      <h3 className="font-serif text-xl font-bold text-white">{prof.name}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Navigation Arrows (Desktop Only) */}
-            <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
-              <ChevronRight className="w-5 h-5" />
-            </button>
+
+          <div className="mb-16">
+            <UnitSelector 
+              emblaRef={teamLocationsRef} 
+              selectedId={selectedLocation?.id} 
+              onSelect={handleLocationSelect} 
+              scrollPrev={scrollPrevTeamLocations} 
+              scrollNext={scrollNextTeamLocations} 
+            />
           </div>
+          
+          {selectedLocation ? (
+            <div className="relative max-w-6xl mx-auto group">
+              <div className="overflow-hidden" ref={teamRef}>
+                <div className="flex gap-6 py-4 px-2 justify-center">
+                  {professionals
+                    .filter((prof) => prof.locationId === selectedLocation.id)
+                    .map((prof, idx) => (
+                      <div 
+                        key={idx} 
+                        className="flex-[0_0_70%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_22%] min-w-0 bg-zinc-900/80 border border-zinc-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-colors group/card relative shadow-md"
+                      >
+                        <div className="aspect-[4/5] w-full overflow-hidden relative">
+                          <img
+                            src={prof.imageUrl}
+                            alt={prof.name}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                          />
+                        </div>
+                        <div className="p-5 text-center bg-zinc-900 relative z-10 border-t border-zinc-800/50 group-hover/card:bg-zinc-800/80 transition-colors">
+                          <h3 className="font-serif text-xl font-bold text-white">{prof.name}</h3>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              
+              {/* Navigation Arrows (Desktop Only) */}
+              {professionals.filter((prof) => prof.locationId === selectedLocation.id).length > 4 && (
+                <>
+                  <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-full items-center justify-center text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-colors z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100">
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-zinc-500 border border-zinc-800 border-dashed rounded-2xl max-w-md mx-auto">
+              <p>Selecione uma unidade acima para ver a nossa equipe.</p>
+            </div>
+          )}
         </div>
       </section>
 
