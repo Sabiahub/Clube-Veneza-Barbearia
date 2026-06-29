@@ -1,6 +1,6 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle2, ChevronRight, ArrowLeft, Instagram, ChevronLeft, Calendar, MessageCircle } from 'lucide-react';
+import { MapPin, CheckCircle2, ChevronRight, ArrowLeft, Instagram, ChevronLeft, Calendar, MessageCircle, Menu, X, Zap, Sparkles } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { locations, plans, servicesList, professionals } from './data';
 import type { Location, Plan } from './types';
@@ -95,6 +95,49 @@ function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const plansSectionRef = useRef<HTMLElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const navLinks = [
+    { id: 'sobre', label: 'Sobre' },
+    { id: 'clube', label: 'Clube' },
+    { id: 'unidades-flow', label: 'Unidades' },
+    { id: 'franqueado', label: 'Seja um Franqueado' },
+    { id: 'curso', label: 'Curso de Barbeiro' },
+  ];
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      let currentActive = activeSection;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          currentActive = entry.target.id;
+        }
+      });
+      if (currentActive && currentActive !== activeSection) {
+        setActiveSection(currentActive);
+      }
+    }, observerOptions);
+    
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(s => observer.observe(s));
+    
+    return () => observer.disconnect();
+  }, [activeSection]);
+
+  const handleNavClick = (targetId: string) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
   
   const [locationsRef, locationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
   const [teamLocationsRef, teamLocationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
@@ -136,37 +179,94 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-zinc-300/30">
-      <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between gap-4">
+      <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 transition-all">
+        <div className="max-w-7xl mx-auto px-6 h-20 sm:h-24 flex items-center justify-between gap-4">
           <div className="flex items-center shrink-0">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-20 sm:h-28 w-auto" />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-20 w-auto cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
+          
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map(link => (
+              <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className={`text-sm font-semibold transition-colors duration-300 relative ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
+              >
+                {link.label}
+                {activeSection === link.id && (
+                  <motion.div layoutId="activeNav" className="absolute -bottom-2 left-0 right-0 h-0.5 bg-zinc-300 rounded-full" />
+                )}
+              </button>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="https://cashbarber.com.br/venezabarbearia"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:shadow-[0_0_15px_rgba(228,228,231,0.15)] shrink-0"
+              className="hidden sm:flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1.5 shadow-md hover:shadow-[0_0_15px_rgba(228,228,231,0.15)] shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">Agendar Online</span>
-              <span className="sm:hidden">Agendar</span>
+              <span>Agendar Online</span>
             </a>
-            <a
-              href="https://wa.me/49999277782"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider flex items-center gap-1.5 shrink-0"
+            
+            <button 
+              className="lg:hidden p-2 text-zinc-300 hover:bg-zinc-800/50 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />
-              <span>WhatsApp</span>
-            </a>
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
       </header>
 
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-20 sm:top-24 left-0 right-0 bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/50 z-40 lg:hidden h-screen overflow-y-auto pb-32"
+          >
+            <div className="flex flex-col px-6 py-8 gap-6">
+              {navLinks.map(link => (
+                <button
+                  key={link.id}
+                  onClick={() => handleNavClick(link.id)}
+                  className={`text-lg font-bold text-left transition-colors ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
+                >
+                  {link.label}
+                </button>
+              ))}
+              
+              <div className="h-px bg-zinc-800/50 my-2" />
+              
+              <a
+                href="https://cashbarber.com.br/venezabarbearia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-sm font-bold py-4 px-6 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-[0_0_15px_rgba(228,228,231,0.15)] w-full"
+              >
+                <Calendar className="w-5 h-5" />
+                Agendar Online
+              </a>
+              <a
+                href="https://wa.me/49999277782"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-sm font-bold py-4 px-6 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2 w-full"
+              >
+                <MessageCircle className="w-5 h-5 text-green-500" />
+                WhatsApp
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* HERO */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2000&auto=format&fit=crop"
@@ -204,6 +304,60 @@ export default function App() {
         </div>
       </section>
 
+            {/* SOBRE */}
+      <section id="sobre" className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-zinc-500 font-serif text-xl mb-4 block">Sobre a Veneza Barbearia</span>
+            <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Tradição, Estilo e <span className="text-zinc-300">Excelência</span></h2>
+            <p className="text-zinc-400 mb-6 leading-relaxed">
+              Fundada com o propósito de elevar a experiência de cuidados masculinos, a Clube Veneza une o melhor da barbearia clássica com um modelo inovador de assinaturas. Nossa meta é garantir que você esteja sempre na sua melhor versão.
+            </p>
+            <ul className="space-y-4 mb-8">
+              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Quatro unidades bem localizadas</li>
+              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Profissionais altamente capacitados</li>
+              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Ambiente premium e acolhedor</li>
+            </ul>
+          </div>
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-800 border border-zinc-800/50">
+              <img src="/plano-cabelo-barba-belavista.jpg" alt="Barbearia Veneza" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-6 rounded-2xl shadow-xl flex flex-col items-center">
+              <p className="text-4xl font-bold font-serif text-white mb-1">+5k</p>
+              <p className="text-zinc-400 text-sm">Assinantes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CLUBE */}
+      <section id="clube" className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <span className="text-zinc-500 font-serif text-xl mb-4 block">O Clube</span>
+          <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-12">Por que ser um <span className="text-zinc-300">Assinante?</span></h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
+              <Zap className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
+              <h3 className="text-xl font-bold text-white mb-3">Uso Ilimitado</h3>
+              <p className="text-zinc-400 text-sm">Sempre com o visual em dia. Venha quantas vezes precisar durante o mês em nossos planos ilimitados.</p>
+            </div>
+            <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
+              <Calendar className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
+              <h3 className="text-xl font-bold text-white mb-3">Praticidade</h3>
+              <p className="text-zinc-400 text-sm">Agendamento rápido via app e pagamento automático. Sem surpresas na hora de pagar.</p>
+            </div>
+            <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
+              <Sparkles className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
+              <h3 className="text-xl font-bold text-white mb-3">Descontos Exclusivos</h3>
+              <p className="text-zinc-400 text-sm">Acesso a descontos especiais em produtos, bebidas e serviços adicionais fora do seu plano.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="unidades-flow">
       {/* STEP 1: LOCATIONS */}
       <section id="locations" className="py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -324,6 +478,8 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      </section>
+
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -342,6 +498,70 @@ export default function App() {
               </div>
             )})}
           </div>
+        </div>
+      </section>
+
+            {/* SEJA UM FRANQUEADO */}
+      <section id="franqueado" className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(228,228,231,0.03)_0%,transparent_50%)]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1 relative">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-zinc-800 max-w-md mx-auto border border-zinc-800/50 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop" alt="Franquia Veneza" className="w-full h-full object-cover grayscale opacity-80" />
+            </div>
+          </div>
+          <div className="order-1 md:order-2">
+            <span className="text-zinc-500 font-serif text-xl mb-4 block">Expansão</span>
+            <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Seja um <span className="text-zinc-300">Franqueado</span></h2>
+            <p className="text-zinc-400 mb-8">
+              Faça parte da rede de barbearias que mais cresce na região. Leve o modelo inovador de assinaturas da Clube Veneza para a sua cidade com suporte completo e modelo de negócios validado.
+            </p>
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="bg-zinc-900/50 border border-zinc-800 p-4 rounded-xl">
+                <h4 className="text-white font-bold mb-1">Baixo Risco</h4>
+                <p className="text-zinc-500 text-xs">Modelo validado e altamente rentável.</p>
+              </div>
+              <div className="bg-zinc-900/50 border border-zinc-800 p-4 rounded-xl">
+                <h4 className="text-white font-bold mb-1">Suporte Total</h4>
+                <p className="text-zinc-500 text-xs">Treinamento e gestão contínua garantidos.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="inline-flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-3 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm items-center gap-2 shadow-md">
+              Saiba Mais <ChevronRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CURSO DE BARBEIRO */}
+      <section id="curso" className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <span className="text-zinc-500 font-serif text-xl mb-4 block">Formação Profissional</span>
+          <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Curso de <span className="text-zinc-300">Barbeiro</span></h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto mb-12">
+            Aprenda as técnicas mais avançadas do mercado com os especialistas da Clube Veneza. Do zero ao avançado, prepare-se para uma carreira de sucesso.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto text-left">
+            {[
+              { title: 'Técnicas de Corte', desc: 'Fade, degradê e uso preciso da tesoura.' },
+              { title: 'Visagismo', desc: 'Identificação de perfis de rosto e adequação do corte.' },
+              { title: 'Barboterapia', desc: 'Técnicas de toalha quente e alinhamento.' },
+              { title: 'Gestão e Atendimento', desc: 'Como fidelizar clientes e gerir sua bancada.' }
+            ].map((module, i) => (
+              <div key={i} className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-6 hover:border-zinc-300/40 hover:bg-zinc-800/60 transition-colors">
+                <span className="text-zinc-600 font-serif text-2xl font-bold mb-2 block">0{i+1}</span>
+                <h4 className="text-white font-bold mb-2">{module.title}</h4>
+                <p className="text-zinc-500 text-sm">{module.desc}</p>
+              </div>
+            ))}
+          </div>
+          
+          <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="inline-flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-4 px-10 rounded-full transition-all duration-300 uppercase tracking-wide text-sm items-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(228,228,231,0.15)] hover:scale-105">
+            Garantir Minha Vaga
+          </a>
         </div>
       </section>
 

@@ -276,7 +276,7 @@ export const servicesList: Service[] = [
   { name: 'DEPILAÇÃO NARIZ ORELHA', icon: Smile },
   { name: 'LIMPEZA DE PELE', icon: Sparkles },
   { name: 'HIDRATAÇÃO', icon: Droplets },
-  { name: 'LUZES PLATINADO', icon: Sun },
+  { name: 'SELAGEM CAPILAR', icon: Sparkles },
   { name: 'PEZINHO', icon: Scissors },
   { name: 'PIGMENTAÇÃO DA BARBA', icon: Paintbrush },
   { name: 'RELAXAMENTO CAPILAR', icon: Wind },
