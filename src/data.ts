@@ -113,7 +113,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-cabelo-barba-belavista.jpg',
+    imageUrl: '/13.jpeg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/vip-combo-horario-fixo-somente-unidade-b/42'
   },
   {
@@ -139,7 +139,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/13.jpeg',
+    imageUrl: '/plano-cabelo-barba-belavista.jpg',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/corte-ilimitado-somente-unidade-bela-vis/24'
   },
   {
