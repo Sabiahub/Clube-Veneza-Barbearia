@@ -284,29 +284,21 @@ export const servicesList: Service[] = [
 ];
 
 export const professionals: Professional[] = [
-  {
-    name: 'Daniel',
-    description: 'Sem observação',
-    imageUrl: '/daniel.png'
-  },
-  {
-    name: 'Jackson',
-    description: 'Sem observação',
-    imageUrl: '/jackson.jpg'
-  },
-  {
-    name: 'Kauã',
-    description: 'Sem observação',
-    imageUrl: '/kaua.jpg'
-  },
-  {
-    name: 'Reginaldo',
-    description: 'Sem observação',
-    imageUrl: '/reginaldo.jpg'
-  },
-  {
-    name: 'Will',
-    description: 'Sem observação',
-    imageUrl: '/will.png'
-  }
+  // Avenida
+  { name: 'Jesus', description: '', imageUrl: '/JESUS.webp' },
+  { name: 'Lucas', description: '', imageUrl: '/LUCAS.webp' },
+  { name: 'Rafa', description: '', imageUrl: '/RAFA.webp' },
+  // Bela Vista
+  { name: 'Alexandre', description: '', imageUrl: '/ALEXANDRE.webp' },
+  { name: 'Diego', description: '', imageUrl: '/DIEGO.webp' },
+  { name: 'Iago', description: '', imageUrl: '/IAGO.webp' },
+  // Center
+  { name: 'Hasus', description: '', imageUrl: '/HASUS.webp' },
+  { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp' },
+  { name: 'Vini', description: '', imageUrl: '/VINI.webp' },
+  // Sul
+  { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp' },
+  { name: 'Enzo', description: '', imageUrl: '/ENZO.webp' },
+  { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp' },
+  { name: 'Líder', description: '', imageUrl: '/LÍDER.webp' }
 ];

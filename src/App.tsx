@@ -42,7 +42,7 @@ export default function App() {
       <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
         <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between gap-4">
           <div className="flex items-center shrink-0">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-16 sm:h-20 w-auto" />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-20 sm:h-28 w-auto" />
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <a
@@ -399,7 +399,7 @@ export default function App() {
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start">
               <div className="mb-6">
-                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-36 sm:h-44 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
+                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-44 sm:h-56 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
               </div>
               <p className="text-zinc-400 text-sm max-w-sm mx-auto md:mx-0">
                 O seu estilo sempre impecável. Assine nossos planos mensais e desfrute de serviços exclusivos com atendimento premium.
