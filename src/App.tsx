@@ -121,11 +121,13 @@ export default function App() {
     if (teamApi) teamApi.scrollNext()
   }, [teamApi])
 
-  const handleLocationSelect = (loc: Location) => {
+  const handleLocationSelect = (loc: Location, shouldScroll = true) => {
     setSelectedLocation(loc);
-    setTimeout(() => {
-      plansSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    if (shouldScroll) {
+      setTimeout(() => {
+        plansSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
   };
 
   const getLocationPlans = (loc: Location): Plan[] => {
@@ -216,7 +218,7 @@ export default function App() {
           <UnitSelector 
             emblaRef={locationsRef} 
             selectedId={selectedLocation?.id} 
-            onSelect={handleLocationSelect} 
+            onSelect={(loc) => handleLocationSelect(loc, true)} 
             scrollPrev={scrollPrevLocations} 
             scrollNext={scrollNextLocations} 
           />
@@ -390,7 +392,7 @@ export default function App() {
             <UnitSelector 
               emblaRef={teamLocationsRef} 
               selectedId={selectedLocation?.id} 
-              onSelect={handleLocationSelect} 
+              onSelect={(loc) => handleLocationSelect(loc, false)} 
               scrollPrev={scrollPrevTeamLocations} 
               scrollNext={scrollNextTeamLocations} 
             />
