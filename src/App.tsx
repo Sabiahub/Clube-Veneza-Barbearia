@@ -180,9 +180,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-zinc-300/30">
       <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 transition-all">
-        <div className="max-w-7xl mx-auto px-6 h-20 sm:h-24 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-24 sm:h-28 flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center shrink-0">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-20 w-auto cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-20 sm:h-24 w-auto cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8">
