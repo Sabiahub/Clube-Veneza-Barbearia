@@ -200,19 +200,30 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href="https://cashbarber.com.br/venezabarbearia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-xs sm:text-sm font-bold py-2.5 px-3 sm:px-6 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1.5 shadow-md hover:shadow-[0_0_15px_rgba(228,228,231,0.15)] shrink-0"
-            >
-              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span>Agendar Online</span>
-            </a>
+          <div className="flex items-center gap-1 sm:gap-3">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <a
+                href="https://cashbarber.com.br/venezabarbearia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-[9px] sm:text-xs font-bold py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1 sm:gap-1.5 shadow-md shrink-0"
+              >
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span>Agendar Online</span>
+              </a>
+              <a
+                href="https://wa.me/49999277782"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-[9px] sm:text-xs font-bold py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1 sm:gap-1.5 shrink-0"
+              >
+                <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
             
             <button 
-              className="lg:hidden p-2 text-zinc-300 hover:bg-zinc-800/50 rounded-lg transition-colors"
+              className="lg:hidden p-1 sm:p-2 text-zinc-300 hover:bg-zinc-800/50 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -309,7 +320,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-zinc-500 font-serif text-xl mb-4 block">Sobre a Veneza Barbearia</span>
-            <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Tradição, Estilo e <span className="text-zinc-300">Excelência</span></h2>
+            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-6">Tradição, Estilo e <span className="text-zinc-300">Excelência</span></h2>
             <p className="text-zinc-400 mb-6 leading-relaxed">
               Fundada com o propósito de elevar a experiência de cuidados masculinos, a Clube Veneza une o melhor da barbearia clássica com um modelo inovador de assinaturas. Nossa meta é garantir que você esteja sempre na sua melhor versão.
             </p>
@@ -323,9 +334,15 @@ export default function App() {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-800 border border-zinc-800/50">
               <img src="/plano-cabelo-barba-belavista.jpg" alt="Barbearia Veneza" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-6 rounded-2xl shadow-xl flex flex-col items-center">
-              <p className="text-4xl font-bold font-serif text-white mb-1">+5k</p>
-              <p className="text-zinc-400 text-sm">Assinantes</p>
+            <div className="absolute -bottom-6 -left-6 flex flex-row gap-2 sm:gap-3">
+              <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
+                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+4k</p>
+                <p className="text-zinc-400 text-[9px] sm:text-xs uppercase tracking-wider">Atendimentos/mês</p>
+              </div>
+              <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
+                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+650</p>
+                <p className="text-zinc-400 text-[9px] sm:text-xs uppercase tracking-wider">Assinantes</p>
+              </div>
             </div>
           </div>
         </div>
@@ -528,7 +545,7 @@ export default function App() {
                 <p className="text-zinc-500 text-xs">Treinamento e gestão contínua garantidos.</p>
               </div>
             </div>
-            <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="inline-flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-3 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm items-center gap-2 shadow-md">
+            <a href="https://venezabarbearia.com.br/?fbclid=PAVERFWASo_UNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadh5u_rZzFmuzH-UDmRCCxw7STQVueFJzQXCGyfB2oRLCsgxFlzJfVJztpPag_aem_8EgnOcEcZLMb3-ivkdBfsg" target="_blank" rel="noopener noreferrer" className="inline-flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-3 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm items-center gap-2 shadow-md">
               Saiba Mais <ChevronRight className="w-4 h-4" />
             </a>
           </div>
