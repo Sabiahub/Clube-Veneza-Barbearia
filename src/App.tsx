@@ -324,19 +324,24 @@ export default function App() {
             transition={{ duration: 0.7 }}
             className="w-full flex flex-col items-center"
           >
-            <div className="relative inline-block text-center mb-6">
-              {/* Sublogo com Glassmorphism */}
-              <div className="absolute -top-12 -left-8 sm:-top-16 sm:-left-12 lg:-top-20 lg:-left-16 w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 z-20 pointer-events-none">
-                <div className="absolute inset-0 rounded-full bg-zinc-800/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"></div>
-                <img src="/sublogo.png" alt="Veneza Barbearia" className="relative z-10 w-full h-full object-contain p-2 opacity-90 drop-shadow-md" />
+            <div className="flex flex-col items-center mb-6 max-w-full">
+              {/* Header Group: Badge + Subtitle */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4 w-full">
+                {/* Badge "V" Glassmorphism */}
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 z-20 shrink-0">
+                  <div className="absolute inset-0 rounded-full bg-zinc-800/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.3)]"></div>
+                  <img src="/sublogo.png" alt="Veneza Barbearia" className="relative z-10 w-full h-full object-contain p-1.5 opacity-90 drop-shadow-md" />
+                </div>
+
+                <span className="text-zinc-300 uppercase tracking-[0.2em] text-xs sm:text-sm font-semibold relative z-10 pt-2">
+                  Bem-vindo ao
+                </span>
               </div>
 
-              <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4 block relative z-10">
-                Bem-vindo ao
-              </span>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
+              {/* Main Title */}
+              <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold leading-none relative z-10 text-center w-full">
                 <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
-                <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-3 lowercase tracking-wider">barbearia</span>
+                <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-2 sm:mt-3 lowercase tracking-wider">barbearia</span>
               </h1>
             </div>
 
