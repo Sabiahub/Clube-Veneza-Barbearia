@@ -97,6 +97,14 @@ export default function App() {
   const plansSectionRef = useRef<HTMLElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
+
 
   const navLinks = [
     { id: 'sobre', label: 'Sobre' },
@@ -178,14 +186,24 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-zinc-300/30">
-      <header className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 transition-all">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-24 sm:h-28 flex items-center justify-between gap-2 sm:gap-4">
-          <div className="flex items-center shrink-0">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-20 sm:h-24 w-auto cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+    <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-zinc-300/30 pb-32 lg:pb-0">
+      <header className="fixed top-0 w-full z-40 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 transition-all">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-20 sm:h-24 flex items-center justify-between relative">
+          
+          {/* Hamburger (Left on mobile, hidden on desktop) */}
+          <button 
+            className="lg:hidden p-2 text-zinc-300 hover:bg-zinc-800/50 rounded-lg transition-colors z-10"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Menu className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Logo (Centered on mobile, Left on desktop) */}
+          <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-16 sm:h-20 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
             {navLinks.map(link => (
               <button
                 key={link.id}
@@ -200,81 +218,93 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-1 sm:gap-3">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <a
-                href="https://cashbarber.com.br/venezabarbearia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-[9px] sm:text-xs font-bold py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1 sm:gap-1.5 shadow-md shrink-0"
-              >
-                <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span>Agendar Online</span>
-              </a>
-              <a
-                href="https://wa.me/49999277782"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-[9px] sm:text-xs font-bold py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1 sm:gap-1.5 shrink-0"
-              >
-                <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-            
-            <button 
-              className="lg:hidden p-1 sm:p-2 text-zinc-300 hover:bg-zinc-800/50 rounded-lg transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+          {/* Desktop CTA Buttons (Hidden on mobile) */}
+          <div className="hidden lg:flex items-center gap-2 z-10">
+            <a
+              href="https://cashbarber.com.br/venezabarbearia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-xs font-bold py-2.5 px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1.5 shadow-md shrink-0"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              <Calendar className="w-4 h-4" />
+              <span>Agendar Online</span>
+            </a>
+            <a
+              href="https://wa.me/49999277782"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-xs font-bold py-2.5 px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1.5 shrink-0"
+            >
+              <MessageCircle className="w-4 h-4 text-green-500" />
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </header>
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 sm:top-24 left-0 right-0 bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/50 z-40 lg:hidden h-screen overflow-y-auto pb-32"
-          >
-            <div className="flex flex-col px-6 py-8 gap-6">
-              {navLinks.map(link => (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link.id)}
-                  className={`text-lg font-bold text-left transition-colors ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 lg:hidden"
+            />
+            
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+              className="fixed top-0 left-0 bottom-0 w-[280px] max-w-[80vw] bg-zinc-950 border-r border-zinc-800/50 z-[51] lg:hidden flex flex-col shadow-2xl"
+            >
+              <div className="flex items-center justify-between p-6 border-b border-zinc-800/50">
+                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-10 w-auto" />
+                <button 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800/50 rounded-lg transition-colors"
                 >
-                  {link.label}
+                  <X className="w-6 h-6" />
                 </button>
-              ))}
-              
-              <div className="h-px bg-zinc-800/50 my-2" />
-              
-              <a
-                href="https://cashbarber.com.br/venezabarbearia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-sm font-bold py-4 px-6 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-[0_0_15px_rgba(228,228,231,0.15)] w-full"
-              >
-                <Calendar className="w-5 h-5" />
-                Agendar Online
-              </a>
-              <a
-                href="https://wa.me/49999277782"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white text-sm font-bold py-4 px-6 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2 w-full"
-              >
-                <MessageCircle className="w-5 h-5 text-green-500" />
-                WhatsApp
-              </a>
-            </div>
-          </motion.div>
+              </div>
+
+              <div className="flex-1 overflow-y-auto py-8 px-6 flex flex-col gap-8">
+                <div className="flex flex-col gap-6">
+                  {navLinks.map(link => (
+                    <button
+                      key={link.id}
+                      onClick={() => {
+                        handleNavClick(link.id);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`text-lg font-bold text-left transition-colors ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
+                    >
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
+
+      {/* Floating Action Bar (Mobile Only) */}
+      <div className="lg:hidden fixed right-4 bottom-6 z-40 flex flex-col gap-3">
+        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-[0_4px_15px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-110 border border-green-400/50">
+          <MessageCircle className="w-6 h-6" />
+        </a>
+        <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-zinc-800/90 hover:bg-zinc-700 backdrop-blur-md text-zinc-100 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border border-zinc-600/50">
+          <Calendar className="w-5 h-5" />
+        </a>
+        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-zinc-900/90 hover:bg-zinc-800 backdrop-blur-md text-zinc-300 hover:text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 border border-zinc-700/50">
+          <Instagram className="w-5 h-5" />
+        </a>
+      </div>
 
       {/* HERO */}
       <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
