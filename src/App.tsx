@@ -200,7 +200,7 @@ export default function App() {
 
           {/* Logo (Centered on mobile, Left on desktop) */}
           <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-28 sm:h-24 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-16 lg:h-20 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
@@ -323,6 +323,12 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
+            {/* Sublogo com Glassmorphism */}
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-8">
+              <div className="absolute inset-0 rounded-full bg-zinc-800/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"></div>
+              <img src="/sublogo.png" alt="Veneza Barbearia" className="relative z-10 w-full h-full object-contain p-3 invert opacity-90" />
+            </div>
+
             <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4 block">
               Bem-vindo ao
             </span>
