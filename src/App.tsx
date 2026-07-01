@@ -307,7 +307,7 @@ export default function App() {
       </div>
 
       {/* HERO */}
-      <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section id="hero" className="relative pt-40 pb-20 sm:pt-48 lg:pt-56 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/18.jpeg"
@@ -317,7 +317,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/80 to-zinc-950"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center mt-12 sm:mt-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center mt-16 sm:mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
