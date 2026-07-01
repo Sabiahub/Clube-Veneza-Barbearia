@@ -280,7 +280,7 @@ export default function App() {
       <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2000&auto=format&fit=crop"
+            src="/18.jpeg"
             alt="Barbearia background"
             className="w-full h-full object-cover opacity-20"
           />
@@ -336,7 +336,7 @@ export default function App() {
             </div>
             <div className="absolute -bottom-6 -left-6 flex flex-row gap-2 sm:gap-3">
               <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
-                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+4k</p>
+                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+4000</p>
                 <p className="text-zinc-400 text-[9px] sm:text-xs uppercase tracking-wider">Atendimentos/mês</p>
               </div>
               <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
@@ -526,7 +526,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 relative">
             <div className="aspect-square rounded-2xl overflow-hidden bg-zinc-800 max-w-md mx-auto border border-zinc-800/50 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop" alt="Franquia Veneza" className="w-full h-full object-cover grayscale opacity-80" />
+              <img src="/17.jpg" alt="Franquia Veneza" className="w-full h-full object-cover grayscale opacity-80" />
             </div>
           </div>
           <div className="order-1 md:order-2">

@@ -292,13 +292,14 @@ export const professionals: Professional[] = [
   { name: 'Alexandre', description: '', imageUrl: '/ALEXANDRE.webp', locationId: 'loc-belavista' },
   { name: 'Diego', description: '', imageUrl: '/DIEGO.webp', locationId: 'loc-belavista' },
   { name: 'Iago', description: '', imageUrl: '/IAGO.webp', locationId: 'loc-belavista' },
+  { name: 'James', description: '', imageUrl: '/JAMES.png', locationId: 'loc-belavista' },
   // Center
   { name: 'Hasus', description: '', imageUrl: '/HASUS.webp', locationId: 'loc-center' },
   { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp', locationId: 'loc-center' },
   { name: 'Vini', description: '', imageUrl: '/VINI.webp', locationId: 'loc-center' },
   // Sul
+  { name: 'Gustavo', description: '', imageUrl: '/GUSTAVO.webp', locationId: 'loc-sul' },
   { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp', locationId: 'loc-sul' },
   { name: 'Enzo', description: '', imageUrl: '/ENZO.webp', locationId: 'loc-sul' },
-  { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp', locationId: 'loc-sul' },
-  { name: 'Líder', description: '', imageUrl: '/LÍDER.webp', locationId: 'loc-sul' }
+  { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp', locationId: 'loc-sul' }
 ];
