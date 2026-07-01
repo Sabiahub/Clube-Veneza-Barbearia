@@ -188,7 +188,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-zinc-300/30 pb-32 lg:pb-0">
       <header className="fixed top-0 w-full z-40 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 transition-all">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-20 sm:h-24 flex items-center justify-between relative">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-24 sm:h-28 flex items-center justify-between relative">
           
           {/* Hamburger (Left on mobile, hidden on desktop) */}
           <button 
@@ -200,7 +200,7 @@ export default function App() {
 
           {/* Logo (Centered on mobile, Left on desktop) */}
           <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-16 sm:h-20 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-28 sm:h-24 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
@@ -294,20 +294,20 @@ export default function App() {
       </AnimatePresence>
 
       {/* Floating Action Bar (Mobile Only) */}
-      <div className="lg:hidden fixed right-4 bottom-6 z-40 flex flex-col items-center gap-3 p-2.5 rounded-full bg-zinc-900/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-inset ring-white/5">
-        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
+      <div className="lg:hidden fixed right-4 bottom-6 z-40 flex flex-col items-center gap-3 p-3 rounded-full bg-zinc-900/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-inset ring-white/5">
+        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
           <div className="absolute inset-0 bg-green-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <img src="/logo-wpp.png" alt="WhatsApp" className="w-8 h-8 object-contain drop-shadow-[0_0_12px_rgba(37,211,102,0.8)] relative z-10" />
+          <img src="/logo-wpp.png" alt="WhatsApp" className="w-12 h-12 object-contain drop-shadow-[0_0_12px_rgba(37,211,102,0.8)] relative z-10" />
         </a>
-        <div className="w-6 h-px bg-white/10 rounded-full"></div>
-        <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
+        <div className="w-8 h-px bg-white/10 rounded-full"></div>
+        <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
           <div className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <Calendar className="w-5 h-5 relative z-10" />
+          <Calendar className="w-7 h-7 relative z-10" />
         </a>
-        <div className="w-6 h-px bg-white/10 rounded-full"></div>
-        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
+        <div className="w-8 h-px bg-white/10 rounded-full"></div>
+        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
           <div className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <Instagram className="w-5 h-5 relative z-10" />
+          <Instagram className="w-7 h-7 relative z-10" />
         </a>
       </div>
 
