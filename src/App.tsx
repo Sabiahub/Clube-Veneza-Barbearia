@@ -294,20 +294,15 @@ export default function App() {
       </AnimatePresence>
 
       {/* Floating Action Bar (Mobile Only) */}
-      <div className="lg:hidden fixed right-4 bottom-6 z-40 flex flex-col items-center gap-3 p-3 rounded-full bg-zinc-900/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-inset ring-white/5">
-        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
-          <div className="absolute inset-0 bg-green-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <img src="/logo-wpp.png" alt="WhatsApp" className="w-12 h-12 object-contain drop-shadow-[0_0_12px_rgba(37,211,102,0.8)] relative z-10" />
+      <div className="lg:hidden fixed right-3 bottom-6 z-40 flex flex-col items-center gap-0.5 p-1 rounded-full bg-zinc-900/40 backdrop-blur-xl backdrop-saturate-150 border border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10 relative group">
+          <img src="/logo-wpp.png" alt="WhatsApp" className="w-9 h-9 object-contain drop-shadow-[0_0_8px_rgba(37,211,102,0.6)] relative z-10" />
         </a>
-        <div className="w-8 h-px bg-white/10 rounded-full"></div>
-        <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
-          <div className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <Calendar className="w-7 h-7 relative z-10" />
+        <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
+          <Calendar className="w-[22px] h-[22px]" />
         </a>
-        <div className="w-8 h-px bg-white/10 rounded-full"></div>
-        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-14 text-zinc-300 hover:text-white rounded-full transition-all duration-300 hover:scale-110 hover:bg-white/10 relative group">
-          <div className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <Instagram className="w-7 h-7 relative z-10" />
+        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
+          <Instagram className="w-[22px] h-[22px]" />
         </a>
       </div>
 
