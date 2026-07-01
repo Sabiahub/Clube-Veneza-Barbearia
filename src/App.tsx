@@ -200,7 +200,7 @@ export default function App() {
 
           {/* Logo (Centered on mobile, Left on desktop) */}
           <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
-            <img src="/logo-white.png" alt="Veneza Barbearia" className="h-14 sm:h-16 lg:h-20 w-auto cursor-pointer pointer-events-auto" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-20 sm:h-24 lg:h-28 w-auto cursor-pointer pointer-events-auto drop-shadow-md" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
@@ -317,25 +317,29 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/80 to-zinc-950"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center mt-12 sm:mt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
+            className="w-full flex flex-col items-center"
           >
-            {/* Sublogo com Glassmorphism */}
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-8">
-              <div className="absolute inset-0 rounded-full bg-zinc-800/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"></div>
-              <img src="/sublogo.png" alt="Veneza Barbearia" className="relative z-10 w-full h-full object-contain p-3 invert opacity-90" />
+            <div className="relative inline-block text-center mb-6">
+              {/* Sublogo com Glassmorphism */}
+              <div className="absolute -top-12 -left-8 sm:-top-16 sm:-left-12 lg:-top-20 lg:-left-16 w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 z-20 pointer-events-none">
+                <div className="absolute inset-0 rounded-full bg-zinc-800/30 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"></div>
+                <img src="/sublogo.png" alt="Veneza Barbearia" className="relative z-10 w-full h-full object-contain p-2 opacity-90 drop-shadow-md" />
+              </div>
+
+              <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4 block relative z-10">
+                Bem-vindo ao
+              </span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
+                <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
+                <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-3 lowercase tracking-wider">barbearia</span>
+              </h1>
             </div>
 
-            <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4 block">
-              Bem-vindo ao
-            </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-none">
-              <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
-              <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-3 lowercase tracking-wider">barbearia</span>
-            </h1>
             <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
               O seu estilo sempre impecável. Assine nossos planos mensais, escolha sua unidade favorita e desfrute de serviços ilimitados com atendimento premium.
             </p>
