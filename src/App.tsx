@@ -200,7 +200,7 @@ export default function App() {
 
           {/* Logo (Centered on mobile, Left on desktop) */}
           <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
-            <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-20 sm:h-24 lg:h-28 w-auto cursor-pointer pointer-events-auto drop-shadow-md transform scale-125 lg:scale-150 origin-center lg:origin-left" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-20 sm:h-24 lg:h-28 w-auto cursor-pointer pointer-events-auto drop-shadow-md transform scale-[1.8] sm:scale-[2] lg:scale-[2.2] origin-center lg:origin-left" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
@@ -335,8 +335,8 @@ export default function App() {
                 {/* Main Title */}
                 <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
-                  <div className="absolute top-0 left-0 -translate-x-[45%] sm:-translate-x-[50%] -translate-y-[45%] sm:-translate-y-[55%] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 z-20 pointer-events-none">
-                    <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain opacity-90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
+                  <div className="absolute top-0 left-0 -translate-x-[15%] sm:-translate-x-[20%] -translate-y-[45%] sm:-translate-y-[55%] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 z-20 pointer-events-none">
+                    <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
                   </div>
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
