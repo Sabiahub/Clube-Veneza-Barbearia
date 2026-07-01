@@ -200,7 +200,7 @@ export default function App() {
 
           {/* Logo (Centered on mobile, Left on desktop) */}
           <div className="flex flex-1 justify-center lg:justify-start items-center shrink-0 absolute lg:relative left-0 right-0 lg:left-auto lg:right-auto pointer-events-none lg:pointer-events-auto">
-            <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-20 sm:h-24 lg:h-28 w-auto cursor-pointer pointer-events-auto drop-shadow-md" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
+            <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-20 sm:h-24 lg:h-28 w-auto cursor-pointer pointer-events-auto drop-shadow-md transform scale-125 lg:scale-150 origin-center lg:origin-left" onClick={() => window.scrollTo({top:0, behavior:'smooth'})} />
           </div>
           
           <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8 z-10">
@@ -263,7 +263,7 @@ export default function App() {
               className="fixed top-0 left-0 bottom-0 w-[280px] max-w-[80vw] bg-zinc-950 border-r border-zinc-800/50 z-[51] lg:hidden flex flex-col shadow-2xl"
             >
               <div className="flex items-center justify-between p-6 border-b border-zinc-800/50">
-                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-10 w-auto" />
+                <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-10 w-auto transform scale-150 origin-left" />
                 <button 
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800/50 rounded-lg transition-colors"
@@ -327,11 +327,6 @@ export default function App() {
             <div className="w-full flex justify-center mb-6 px-4 sm:px-8">
               <div className="relative inline-flex flex-col items-center text-center max-w-full">
                 
-                {/* Badge "V" (Sem fundo de vidro) */}
-                <div className="absolute top-0 left-0 -translate-x-[60%] sm:-translate-x-[70%] -translate-y-[15%] sm:-translate-y-[20%] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 z-20 pointer-events-none">
-                  <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain opacity-90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
-                </div>
-
                 {/* Subtitle */}
                 <span className="text-zinc-300 uppercase tracking-[0.2em] text-xs sm:text-sm font-semibold mb-3 sm:mb-4 relative z-10">
                   Bem-vindo ao
@@ -339,6 +334,11 @@ export default function App() {
 
                 {/* Main Title */}
                 <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
+                  {/* Badge "V" (Independente, colado no "C") */}
+                  <div className="absolute top-0 left-0 -translate-x-[45%] sm:-translate-x-[50%] -translate-y-[45%] sm:-translate-y-[55%] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 z-20 pointer-events-none">
+                    <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain opacity-90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
+                  </div>
+
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
                   <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-2 sm:mt-3 lowercase tracking-wider">barbearia</span>
                 </h1>
@@ -733,7 +733,7 @@ export default function App() {
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start">
               <div className="mb-6">
-                <img src="/logo-white.png" alt="Veneza Barbearia" className="h-44 sm:h-56 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
+                <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-44 sm:h-56 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
               </div>
               <p className="text-zinc-400 text-sm max-w-sm mx-auto md:mx-0">
                 O seu estilo sempre impecável. Assine nossos planos mensais e desfrute de serviços exclusivos com atendimento premium.
