@@ -43,7 +43,7 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
             
             <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-6">
               <h3 className="font-serif text-sm sm:text-2xl font-bold text-white mb-1 sm:mb-2 flex items-center justify-between">
-                <span className="truncate pr-2">{loc.name}</span>
+                <span className="truncate pr-2">{loc.name.replace('Comper ', '')}</span>
                 <motion.div
                   animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
                   className="text-zinc-300 bg-zinc-900/50 backdrop-blur-sm border border-zinc-300/30 p-1 rounded-full shadow-[0_0_10px_rgba(228,228,231,0.1)] shrink-0"
@@ -699,7 +699,7 @@ export default function App() {
                   onClick={() => handleLocationSelect(loc, false)}
                   className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
                 >
-                  {loc.name.replace('Unidade ', '')}
+                  {loc.name.replace('Unidade ', '').replace('Comper ', '')}
                   {selectedLocation?.id === loc.id && (
                     <motion.div layoutId="activeTeamTab" className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
                   )}
