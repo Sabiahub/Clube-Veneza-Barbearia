@@ -27,3 +27,12 @@
   --font-eightone: "Eight One", sans-serif;
   --font-adam: "Adam", sans-serif;
 }
+
+/* Esconder scrollbar em containers com overflow */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
