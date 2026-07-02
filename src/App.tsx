@@ -338,7 +338,7 @@ export default function App() {
                 {/* Main Title */}
                 <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
-                  <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] lg:-translate-x-[40%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 z-[60] pointer-events-none">
+                  <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 z-20 pointer-events-none">
                     <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
                   </div>
 
