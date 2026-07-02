@@ -298,8 +298,16 @@ export default function App() {
 
       {/* Floating Action Bar (Mobile Only) */}
       <div className="lg:hidden fixed right-3 bottom-6 z-40 flex flex-col items-center gap-0.5 p-1 rounded-full bg-zinc-900/40 backdrop-blur-xl backdrop-saturate-150 border border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10 relative group">
-          <img src="/logo-wpp.png" alt="WhatsApp" className="w-9 h-9 object-contain drop-shadow-[0_0_8px_rgba(37,211,102,0.6)] relative z-10" />
+        <a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10 relative group overflow-hidden">
+          <dotlottie-player
+            src="/whatsapp-animation.lottie"
+            background="transparent"
+            speed="1"
+            style={{ width: '40px', height: '40px' }}
+            loop
+            autoplay
+            className="relative z-10"
+          />
         </a>
         <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
           <Calendar className="w-[22px] h-[22px]" />

@@ -28,3 +28,11 @@ export interface Service {
   name: string;
   icon: any; // Lucide icon component
 }
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'dotlottie-player': any;
+    }
+  }
+}
