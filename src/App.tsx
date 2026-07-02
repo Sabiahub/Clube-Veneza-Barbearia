@@ -701,14 +701,21 @@ export default function App() {
             <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
           </div>
 
-          <div className="mb-16">
-            <UnitSelector 
-              emblaRef={teamLocationsRef} 
-              selectedId={selectedLocation?.id} 
-              onSelect={(loc) => handleLocationSelect(loc, false)} 
-              scrollPrev={scrollPrevTeamLocations} 
-              scrollNext={scrollNextTeamLocations} 
-            />
+          <div className="mb-12 border-b border-zinc-800/50 flex overflow-x-auto justify-start md:justify-center no-scrollbar">
+            <div className="flex gap-6 md:gap-12 px-6 md:px-0">
+              {locations.map((loc) => (
+                <button
+                  key={loc.id}
+                  onClick={() => handleLocationSelect(loc, false)}
+                  className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  {loc.name.replace('Unidade ', '')}
+                  {selectedLocation?.id === loc.id && (
+                    <motion.div layoutId="activeTeamTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
           
           {selectedLocation ? (
