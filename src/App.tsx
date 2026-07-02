@@ -327,7 +327,10 @@ export default function App() {
             transition={{ duration: 0.7 }}
             className="w-full flex flex-col items-center"
           >
-            <div className="w-full flex justify-center mb-6 px-4 sm:px-8">
+            {/* ========================================= */}
+            {/* MOBILE TITLE BLOCK (Original, unchanged) */}
+            {/* ========================================= */}
+            <div className="w-full flex justify-center mb-6 px-4 sm:px-8 lg:hidden">
               <div className="relative inline-flex flex-col items-center text-center max-w-full">
                 
                 {/* Subtitle */}
@@ -336,15 +339,40 @@ export default function App() {
                 </span>
 
                 {/* Main Title */}
-                <h1 className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold leading-none relative z-10">
+                <h1 className="text-[2.75rem] sm:text-6xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
-                  <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 z-20 pointer-events-none">
+                  <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none">
                     <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
                   </div>
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
-                  <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl lg:text-4xl block mt-2 sm:mt-3 lowercase tracking-wider">barbearia</span>
+                  <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl block mt-2 sm:mt-3 lowercase tracking-wider">barbearia</span>
                 </h1>
+              </div>
+            </div>
+
+            {/* ========================================= */}
+            {/* DESKTOP TITLE BLOCK (Badge side-by-side)  */}
+            {/* ========================================= */}
+            <div className="hidden lg:flex w-full justify-center mb-8 px-8">
+              <div className="flex items-center gap-8">
+                
+                {/* Badge "V" parallel */}
+                <div className="w-40 h-40 z-20 shrink-0">
+                  <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl" />
+                </div>
+
+                {/* Text Block */}
+                <div className="flex flex-col text-left">
+                  <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4">
+                    Bem-vindo ao
+                  </span>
+                  <h1 className="text-7xl font-bold leading-none">
+                    <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
+                    <span className="font-eightone text-zinc-300 text-4xl block mt-3 lowercase tracking-wider">barbearia</span>
+                  </h1>
+                </div>
+
               </div>
             </div>
 
