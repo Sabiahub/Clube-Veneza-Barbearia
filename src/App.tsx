@@ -701,9 +701,9 @@ export default function App() {
             <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
           </div>
 
-          <div className="mb-12 border-b border-zinc-800/50 w-full">
-            <div className="flex overflow-x-auto no-scrollbar w-full">
-              <div className="flex gap-6 md:gap-12 px-6 md:px-0 md:mx-auto min-w-max pb-px">
+          <div className="mb-12 -mx-6 md:mx-0 border-b border-zinc-800/50">
+            <div className="flex overflow-x-auto no-scrollbar">
+              <div className="flex gap-6 md:gap-12 px-6 md:px-0 md:mx-auto min-w-max">
               {locations.map((loc) => (
                 <button
                   key={loc.id}
@@ -712,7 +712,7 @@ export default function App() {
                 >
                   {loc.name.replace('Unidade ', '')}
                   {selectedLocation?.id === loc.id && (
-                    <motion.div layoutId="activeTeamTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
+                    <motion.div layoutId="activeTeamTab" className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
                   )}
                 </button>
               ))}
