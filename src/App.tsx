@@ -201,7 +201,7 @@ export default function App() {
               className="flex bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 text-xs font-bold py-2.5 px-4 rounded-full transition-all duration-300 uppercase tracking-wider items-center gap-1.5 shadow-md shrink-0"
             >
               <Calendar className="w-4 h-4" />
-              <span>Agendar Online</span>
+              <span>Agendar pelo App</span>
             </a>
             <a
               href="https://wa.me/49999277782"
@@ -283,7 +283,7 @@ export default function App() {
         <a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
           <Calendar className="w-[22px] h-[22px]" />
         </a>
-        <a href="https://instagram.com/venezabarbearia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
+        <a href="https://www.instagram.com/veneza.barbearia/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-11 h-11 text-zinc-400 hover:text-white rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10">
           <Instagram className="w-[22px] h-[22px]" />
         </a>
       </div>
@@ -321,7 +321,7 @@ export default function App() {
                 <h1 className="text-[2.75rem] sm:text-6xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
                   <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none">
-                    <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
+                    <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
                   </div>
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
@@ -338,7 +338,7 @@ export default function App() {
                 
                 {/* Badge "V" parallel */}
                 <div className="w-40 h-40 z-20 shrink-0">
-                  <img src="/sublogo.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl" />
+                  <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl" />
                 </div>
 
                 {/* Text Block */}
@@ -364,7 +364,7 @@ export default function App() {
               }}
               className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase tracking-wide text-sm hover:shadow-[0_0_20px_rgba(228,228,231,0.15)]"
             >
-              Quero Assinar
+              Conheça nossos planos
             </button>
           </motion.div>
         </div>
@@ -425,6 +425,17 @@ export default function App() {
               <h3 className="text-xl font-bold text-white mb-3">Descontos Exclusivos</h3>
               <p className="text-zinc-400 text-sm">Acesso a descontos especiais em produtos, bebidas e serviços adicionais fora do seu plano.</p>
             </div>
+          </div>
+          
+          <div className="mt-16 flex justify-center relative z-10">
+            <button
+              onClick={() => {
+                document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase tracking-wide text-sm hover:shadow-[0_0_20px_rgba(228,228,231,0.15)] inline-block"
+            >
+              Conheça nossos planos
+            </button>
           </div>
         </div>
       </section>
@@ -551,7 +562,8 @@ export default function App() {
 
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url(/pattern.png)', backgroundSize: '400px', backgroundRepeat: 'repeat' }}></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Serviços Oferecidos</h2>
             <p className="text-zinc-400">Não quer assinar um plano mensal agora? Conheça nossos serviços individuais.</p>
@@ -606,7 +618,8 @@ export default function App() {
 
       {/* CURSO DE BARBEIRO */}
       <section id="curso" className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url(/pattern.png)', backgroundSize: '400px', backgroundRepeat: 'repeat' }}></div>
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <span className="text-zinc-500 font-serif text-xl mb-4 block">Formação Profissional</span>
           <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Curso de <span className="text-zinc-300">Barbeiro</span></h2>
           <p className="text-zinc-400 max-w-2xl mx-auto mb-12">
@@ -654,7 +667,7 @@ export default function App() {
               className="w-full sm:w-auto bg-zinc-900/60 hover:bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 hover:border-zinc-300/50 text-zinc-200 hover:text-zinc-100 font-bold py-4 px-8 rounded-full transition-all duration-300 uppercase tracking-wide text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(228,228,231,0.15)] hover:scale-105"
             >
               <Calendar className="w-4 h-4" />
-              Agendar Online
+              Agendar pelo App
             </a>
             <a
               href="https://wa.me/49999277782"
@@ -758,9 +771,9 @@ export default function App() {
             
             {/* Unidade Sul */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Sul (Celeiro Sul)</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Sul (Comper Sul)</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Celeiro Sul</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Comper Sul</span>
                 <span className="block">Av. Nereu Ramos, 1271D</span>
                 <span className="block">Sala 03, Bairro Palmital</span>
                 <span className="block">Chapecó/SC</span>
@@ -771,9 +784,9 @@ export default function App() {
 
             {/* Unidade Center */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Center (Celeiro Center)</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Center (Comper Center)</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Celeiro Center</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Comper Center</span>
                 <span className="block">Rua Rui Barbosa, 441E</span>
                 <span className="block">Centro (dentro do Celeiro Center)</span>
                 <span className="block">Chapecó/SC</span>

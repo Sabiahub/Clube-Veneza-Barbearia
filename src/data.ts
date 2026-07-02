@@ -234,7 +234,7 @@ const belaVistaPlansIds = [
 export const locations: Location[] = [
   {
     id: 'loc-sul',
-    name: 'Unidade Sul',
+    name: 'Comper Sul',
     address: 'Av. Nereu Ramos, 1271d - Palmital, Chapecó - SC, 89814-247',
     imageUrl: '/Sul.jpeg',
     planIds: mainPlansIds,
@@ -242,7 +242,7 @@ export const locations: Location[] = [
   },
   {
     id: 'loc-center',
-    name: 'Unidade Center',
+    name: 'Comper Center',
     address: 'R. Rui Barbosa, 441E - Centro, Chapecó - SC, 89802-140',
     imageUrl: '/center.jpeg',
     planIds: mainPlansIds,
@@ -285,20 +285,19 @@ export const servicesList: Service[] = [
 
 export const professionals: Professional[] = [
   // Avenida
+  { name: 'Rafa', description: '', imageUrl: '/RAFA.webp', locationId: 'loc-avenida' },
   { name: 'Jesus', description: '', imageUrl: '/JESUS.webp', locationId: 'loc-avenida' },
   { name: 'Lucas', description: '', imageUrl: '/LUCAS.webp', locationId: 'loc-avenida' },
-  { name: 'Rafa', description: '', imageUrl: '/RAFA.webp', locationId: 'loc-avenida' },
   // Bela Vista
   { name: 'Alexandre', description: '', imageUrl: '/ALEXANDRE.webp', locationId: 'loc-belavista' },
   { name: 'Diego', description: '', imageUrl: '/DIEGO.webp', locationId: 'loc-belavista' },
-  { name: 'Iago', description: '', imageUrl: '/IAGO.webp', locationId: 'loc-belavista' },
   { name: 'James', description: '', imageUrl: '/JAMES.png', locationId: 'loc-belavista' },
   // Center
+  { name: 'Vini', description: '', imageUrl: '/VINI.webp', locationId: 'loc-center' },
   { name: 'Hasus', description: '', imageUrl: '/HASUS.webp', locationId: 'loc-center' },
   { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp', locationId: 'loc-center' },
-  { name: 'Vini', description: '', imageUrl: '/VINI.webp', locationId: 'loc-center' },
   // Sul
-  { name: 'Gustavo', description: '', imageUrl: '/GUSTAVO.webp', locationId: 'loc-sul' },
+  { name: 'Gabriel', description: '', imageUrl: '/GUSTAVO.webp', locationId: 'loc-sul' },
   { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp', locationId: 'loc-sul' },
   { name: 'Enzo', description: '', imageUrl: '/ENZO.webp', locationId: 'loc-sul' },
   { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp', locationId: 'loc-sul' }
