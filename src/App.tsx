@@ -732,35 +732,67 @@ export default function App() {
       {/* FOOTER */}
       <footer className="py-16 border-t border-zinc-800/50 bg-zinc-950 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 items-center md:items-start text-center md:text-left">
-            {/* Brand */}
-            <div className="flex flex-col items-center md:items-start">
-              <div className="mb-6">
-                <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-44 sm:h-56 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12 items-start text-center md:text-left">
+            {/* Brand & Instagram */}
+            <div className="flex flex-col items-center md:items-start md:col-span-2 lg:col-span-1">
+              <div className="mb-4">
+                <img src="/logo-white.svg" alt="Veneza Barbearia" className="h-32 sm:h-40 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <p className="text-zinc-400 text-sm max-w-sm mx-auto md:mx-0">
-                O seu estilo sempre impecável. Assine nossos planos mensais e desfrute de serviços exclusivos com atendimento premium.
-              </p>
+              <a href="https://www.instagram.com/veneza.barbearia/" target="_blank" rel="noopener noreferrer" className="p-3 bg-zinc-900 border border-zinc-800 rounded-full text-zinc-400 hover:text-zinc-300 hover:border-zinc-300/50 transition-all hover:-translate-y-1 mb-6 md:mb-0">
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
             
-            {/* Links */}
-            <div className="flex flex-col items-center md:items-start">
-              <h4 className="text-white font-bold mb-4 font-serif">Acesso Rápido</h4>
-              <ul className="space-y-2 text-zinc-400 text-sm">
-                <li><a href="#locations" className="hover:text-zinc-300 transition-colors">Nossas Unidades</a></li>
-                <li><a href="https://cashbarber.com.br/venezabarbearia" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Agendamento Online (Cashbarber)</a></li>
-                <li><a href="https://wa.me/49999277782" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Agendamento WhatsApp</a></li>
-              </ul>
+            {/* Unidade Sul */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Sul (Celeiro Sul)</h4>
+              <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Celeiro Sul</span>
+                <span className="block">Av. Nereu Ramos, 1271D</span>
+                <span className="block">Sala 03, Bairro Palmital</span>
+                <span className="block">Chapecó/SC</span>
+                <span className="block text-zinc-500 italic mt-1.5">Agendamento Online</span>
+                <span className="block text-zinc-300 font-semibold mt-1">Whats: (49) 99927-7782</span>
+              </p>
             </div>
 
-            {/* Socials */}
-            <div className="flex flex-col items-center md:items-end">
-              <h4 className="text-white font-bold mb-4 font-serif">Redes Sociais</h4>
-              <div className="flex items-center gap-4">
-                <a href="https://www.instagram.com/veneza.barbearia/" target="_blank" rel="noopener noreferrer" className="p-3 bg-zinc-900 border border-zinc-800 rounded-full text-zinc-400 hover:text-zinc-300 hover:border-zinc-300/50 transition-all hover:-translate-y-1">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
+            {/* Unidade Center */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Center (Celeiro Center)</h4>
+              <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Celeiro Center</span>
+                <span className="block">Rua Rui Barbosa, 441E</span>
+                <span className="block">Centro (dentro do Celeiro Center)</span>
+                <span className="block">Chapecó/SC</span>
+                <span className="block text-zinc-500 italic mt-1.5">Agendamento Online / Barber Club</span>
+                <span className="block text-zinc-300 font-semibold mt-1">Whats: (49) 99927-7782</span>
+              </p>
+            </div>
+
+            {/* Unidade Brasão Avenida */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Brasão Avenida</h4>
+              <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Brasão Avenida</span>
+                <span className="block">Av. Getúlio Dorneles Vargas, 3430</span>
+                <span className="block">Centro, Chapecó/SC</span>
+                <span className="block text-zinc-500 mt-1.5">Seg, Qua e Qui: 9h às 21h</span>
+                <span className="block text-zinc-500">Ter: 9h às 11h30, 14h às 21h</span>
+                <span className="block text-zinc-500">Sáb: 9h às 18h (Dom: fechado)</span>
+                <span className="block text-zinc-300 font-semibold mt-1">Whats: (49) 99927-7782</span>
+              </p>
+            </div>
+
+            {/* Unidade Bela Vista */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Bela Vista</h4>
+              <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Bela Vista</span>
+                <span className="block">Travessa Assis Chateaubriand, 21</span>
+                <span className="block">Bairro Bela Vista</span>
+                <span className="block">Chapecó/SC</span>
+                <span className="block text-zinc-300 font-semibold mt-2.5">Whats: (49) 99927-7782</span>
+              </p>
             </div>
           </div>
           
