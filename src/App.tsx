@@ -701,8 +701,9 @@ export default function App() {
             <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
           </div>
 
-          <div className="mb-12 border-b border-zinc-800/50 flex overflow-x-auto justify-start md:justify-center no-scrollbar">
-            <div className="flex gap-6 md:gap-12 px-6 md:px-0">
+          <div className="mb-12 border-b border-zinc-800/50 w-full">
+            <div className="flex overflow-x-auto no-scrollbar w-full">
+              <div className="flex gap-6 md:gap-12 px-6 md:px-0 md:mx-auto min-w-max pb-px">
               {locations.map((loc) => (
                 <button
                   key={loc.id}
@@ -715,13 +716,14 @@ export default function App() {
                   )}
                 </button>
               ))}
+              </div>
             </div>
           </div>
           
           {selectedLocation ? (
             <div className="relative max-w-6xl mx-auto group">
               <div className="overflow-hidden" ref={teamRef}>
-                <div className="flex gap-6 py-4 px-2 justify-center">
+                <div className="flex gap-6 py-4 px-2">
                   {professionals
                     .filter((prof) => prof.locationId === selectedLocation.id)
                     .map((prof, idx) => (
