@@ -6,88 +6,75 @@ import { locations, plans, servicesList, professionals } from './data';
 import type { Location, Plan } from './types';
 
 interface UnitSelectorProps {
-  emblaRef: any;
   selectedId: string | undefined;
   onSelect: (loc: Location) => void;
-  scrollPrev: () => void;
-  scrollNext: () => void;
 }
 
-function UnitSelector({ emblaRef, selectedId, onSelect, scrollPrev, scrollNext }: UnitSelectorProps) {
+function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
   return (
-    <div className="relative max-w-6xl mx-auto group">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6 py-4 px-2">
-          {locations.map((loc) => (
-            <motion.div
-              key={loc.id}
-              whileHover={{ y: -5 }}
-              onClick={() => onSelect(loc)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  onSelect(loc);
-                }
-              }}
-              className={`flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer backdrop-blur-md
-                ${selectedId === loc.id 
-                  ? 'border-zinc-300/50 bg-zinc-900/40 shadow-[0_0_15px_rgba(228,228,231,0.15)] scale-[1.02]' 
-                  : 'border-zinc-800/50 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-700/80 hover:shadow-xl'
-                }`}
-            >
-              <div className="aspect-[16/9] w-full overflow-hidden">
-                <img
-                  src={loc.imageUrl}
-                  alt={loc.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
-              </div>
-              
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <h3 className="font-serif text-2xl font-bold text-white mb-2 flex items-center justify-between">
-                  {loc.name}
-                  <motion.div
-                    animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
-                    className="text-zinc-300 bg-zinc-900/50 backdrop-blur-sm border border-zinc-300/30 p-1.5 rounded-full shadow-[0_0_10px_rgba(228,228,231,0.1)]"
-                  >
-                    <CheckCircle2 className="w-5 h-5" />
-                  </motion.div>
-                </h3>
-                <div className="overflow-hidden">
-                  <div className="translate-y-0 opacity-100 md:transform md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col gap-3">
-                    <p className="text-zinc-300 text-sm flex items-start gap-2">
-                      <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-zinc-300" />
-                      {loc.address}
-                    </p>
-                    {loc.mapsUrl && (
-                      <a
-                        href={loc.mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-fit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-300/50 text-xs font-bold text-zinc-300 hover:text-zinc-100 hover:shadow-[0_0_10px_rgba(228,228,231,0.1)] transition-all duration-300"
-                      >
-                        Como chegar
-                        <ChevronRight className="w-3 h-3" />
-                      </a>
-                    )}
-                  </div>
+    <div className="max-w-4xl mx-auto px-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 py-4">
+        {locations.map((loc) => (
+          <motion.div
+            key={loc.id}
+            whileHover={{ y: -5 }}
+            onClick={() => onSelect(loc)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                onSelect(loc);
+              }
+            }}
+            className={`group text-left relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer backdrop-blur-md
+              ${selectedId === loc.id 
+                ? 'border-zinc-300/50 bg-zinc-900/40 shadow-[0_0_15px_rgba(228,228,231,0.15)] scale-[1.02] z-10' 
+                : 'border-zinc-800/50 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-700/80 hover:shadow-xl'
+              }`}
+          >
+            <div className="aspect-[16/9] w-full overflow-hidden">
+              <img
+                src={loc.imageUrl}
+                alt={loc.name}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
+            </div>
+            
+            <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-6">
+              <h3 className="font-serif text-sm sm:text-2xl font-bold text-white mb-1 sm:mb-2 flex items-center justify-between">
+                <span className="truncate pr-2">{loc.name}</span>
+                <motion.div
+                  animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
+                  className="text-zinc-300 bg-zinc-900/50 backdrop-blur-sm border border-zinc-300/30 p-1 rounded-full shadow-[0_0_10px_rgba(228,228,231,0.1)] shrink-0"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </motion.div>
+              </h3>
+              <div className="overflow-hidden">
+                <div className="translate-y-0 opacity-100 md:transform md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col gap-1 sm:gap-3">
+                  <p className="text-zinc-300 text-[10px] sm:text-sm flex items-start gap-1 sm:gap-2 line-clamp-2 sm:line-clamp-none">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 shrink-0 text-zinc-300" />
+                    {loc.address}
+                  </p>
+                  {loc.mapsUrl && (
+                    <a
+                      href={loc.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-fit inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-300/50 text-[9px] sm:text-xs font-bold text-zinc-300 hover:text-zinc-100 hover:shadow-[0_0_10px_rgba(228,228,231,0.1)] transition-all duration-300"
+                    >
+                      Como chegar
+                      <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    </a>
+                  )}
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-      
-      {/* Navigation Arrows (Desktop Only) */}
-      <button onClick={scrollPrev} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button onClick={scrollNext} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
-        <ChevronRight className="w-5 h-5" />
-      </button>
     </div>
   );
 }
@@ -147,23 +134,7 @@ export default function App() {
     }
   };
   
-  const [locationsRef, locationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
-  const [teamLocationsRef, teamLocationsApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
   const [teamRef, teamApi] = useEmblaCarousel({ dragFree: true, containScroll: 'trimSnaps' });
-
-  const scrollPrevLocations = useCallback(() => {
-    if (locationsApi) locationsApi.scrollPrev()
-  }, [locationsApi])
-  const scrollNextLocations = useCallback(() => {
-    if (locationsApi) locationsApi.scrollNext()
-  }, [locationsApi])
-
-  const scrollPrevTeamLocations = useCallback(() => {
-    if (teamLocationsApi) teamLocationsApi.scrollPrev()
-  }, [teamLocationsApi])
-  const scrollNextTeamLocations = useCallback(() => {
-    if (teamLocationsApi) teamLocationsApi.scrollNext()
-  }, [teamLocationsApi])
 
   const scrollPrevTeam = useCallback(() => {
     if (teamApi) teamApi.scrollPrev()
@@ -471,11 +442,8 @@ export default function App() {
           </div>
 
           <UnitSelector 
-            emblaRef={locationsRef} 
             selectedId={selectedLocation?.id} 
             onSelect={(loc) => handleLocationSelect(loc, true)} 
-            scrollPrev={scrollPrevLocations} 
-            scrollNext={scrollNextLocations} 
           />
         </div>
       </section>
