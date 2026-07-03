@@ -406,7 +406,7 @@ export default function App() {
       {/* CLUBE */}
       <section id="clube" className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat', maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}></div>
+          <div className="absolute inset-0 opacity-70" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat', maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}></div>
         </div>
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <span className="text-zinc-500 font-serif text-xl mb-4 block">O Clube</span>
@@ -566,7 +566,7 @@ export default function App() {
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat', maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}></div>
+          <div className="absolute inset-0 opacity-70" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat', maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}></div>
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
