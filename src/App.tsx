@@ -321,7 +321,7 @@ export default function App() {
                 <h1 className="text-[2.75rem] sm:text-6xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
                   <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none">
-                    <img src="/esse.png" alt="Veneza Barbearia" className="w-full h-full object-contain spin-slow" />
+                    <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain spin-slow" />
                   </div>
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
@@ -338,7 +338,7 @@ export default function App() {
                 
                 {/* Badge "V" parallel */}
                 <div className="w-40 h-40 z-20 shrink-0">
-                  <img src="/esse.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl spin-slow" />
+                  <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl spin-slow" />
                 </div>
 
                 {/* Text Block */}
