@@ -321,7 +321,7 @@ export default function App() {
                 <h1 className="text-[2.75rem] sm:text-6xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
                   <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none">
-                    <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain" />
+                    <img src="/esse.png" alt="Veneza Barbearia" className="w-full h-full object-contain spin-slow" />
                   </div>
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
@@ -338,7 +338,7 @@ export default function App() {
                 
                 {/* Badge "V" parallel */}
                 <div className="w-40 h-40 z-20 shrink-0">
-                  <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl" />
+                  <img src="/esse.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl spin-slow" />
                 </div>
 
                 {/* Text Block */}
@@ -405,7 +405,11 @@ export default function App() {
 
       {/* CLUBE */}
       <section id="clube" className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat' }}></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_80%)]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <span className="text-zinc-500 font-serif text-xl mb-4 block">O Clube</span>
           <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-12">Por que ser um <span className="text-zinc-300">Assinante?</span></h2>
           
@@ -562,7 +566,10 @@ export default function App() {
 
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url(/pattern.png)', backgroundSize: '400px', backgroundRepeat: 'repeat' }}></div>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'url(/pattern-sem-fundo.png)', backgroundSize: '150px', backgroundRepeat: 'repeat' }}></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_80%)]"></div>
+        </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Serviços Oferecidos</h2>
