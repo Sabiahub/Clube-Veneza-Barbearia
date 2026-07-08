@@ -81,6 +81,14 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
 
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [selectedTeamLocation, setSelectedTeamLocation] = useState<Location | null>(null);
+
+  useEffect(() => {
+    if (selectedLocation) {
+      setSelectedTeamLocation(selectedLocation);
+    }
+  }, [selectedLocation]);
+
   const plansSectionRef = useRef<HTMLElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -701,11 +709,11 @@ export default function App() {
               {locations.map((loc) => (
                 <button
                   key={loc.id}
-                  onClick={() => handleLocationSelect(loc, false)}
-                  className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
+                  onClick={() => setSelectedTeamLocation(loc)}
+                  className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedTeamLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
                 >
                   {loc.name.replace('Unidade ', '').replace('Comper ', '')}
-                  {selectedLocation?.id === loc.id && (
+                  {selectedTeamLocation?.id === loc.id && (
                     <motion.div layoutId="activeTeamTab" className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
                   )}
                 </button>
@@ -714,12 +722,12 @@ export default function App() {
             </div>
           </div>
           
-          {selectedLocation ? (
+          {selectedTeamLocation ? (
             <div className="relative max-w-6xl mx-auto group">
               <div className="overflow-hidden" ref={teamRef}>
                 <div className="flex gap-6 py-4 px-2">
                   {professionals
-                    .filter((prof) => prof.locationId === selectedLocation.id)
+                    .filter((prof) => prof.locationId === selectedTeamLocation.id)
                     .map((prof, idx) => (
                       <div 
                         key={idx} 
