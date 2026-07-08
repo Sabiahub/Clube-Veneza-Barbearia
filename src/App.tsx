@@ -749,7 +749,7 @@ export default function App() {
               </div>
               
               {/* Navigation Arrows (Desktop Only) */}
-              {professionals.filter((prof) => prof.locationId === selectedLocation.id).length > 4 && (
+              {professionals.filter((prof) => prof.locationId === selectedTeamLocation.id).length > 4 && (
                 <>
                   <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
                     <ChevronLeft className="w-5 h-5" />
