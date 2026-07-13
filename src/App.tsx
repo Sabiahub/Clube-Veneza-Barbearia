@@ -104,11 +104,11 @@ export default function App() {
 
 
   const navLinks = [
-    { id: 'sobre', label: 'Sobre', path: '/sobre-nos' },
     { id: 'clube', label: 'Clube' },
     { id: 'unidades-flow', label: 'Unidades' },
     { id: 'franqueado', label: 'Seja um Franqueado' },
     { id: 'curso', label: 'Curso de Barbeiro' },
+    { id: 'sobre', label: 'Sobre', path: '/sobre-nos' },
   ];
 
   useEffect(() => {
