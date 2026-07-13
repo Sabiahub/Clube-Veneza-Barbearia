@@ -21,20 +21,19 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ name, text }: { name: string, text: string }) => (
-  <div className="bg-zinc-900/60 backdrop-blur-md border border-zinc-800/80 p-6 rounded-2xl mb-4 relative hover:border-zinc-500/50 transition-colors shadow-lg">
-    <div className="flex gap-1 mb-3">
+  <div className="bg-zinc-900/60 backdrop-blur-md border border-zinc-800/80 p-4 md:p-6 rounded-2xl mb-4 relative hover:border-zinc-500/50 transition-colors shadow-lg">
+    <div className="flex gap-1 mb-2 md:mb-3">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-[#0CCA4A] text-[#0CCA4A]" />
+        <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-zinc-300 text-zinc-300 drop-shadow-[0_0_5px_rgba(212,212,216,0.6)]" />
       ))}
     </div>
-    <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-4 italic">"{text}"</p>
-    <div className="flex items-center gap-3">
-      <div className="w-10 h-10 rounded-full bg-[#0CCA4A]/20 flex items-center justify-center text-[#0CCA4A] font-bold border border-[#0CCA4A]/30">
+    <p className="text-zinc-300 text-xs md:text-base leading-relaxed mb-3 md:mb-4 italic">"{text}"</p>
+    <div className="flex items-center gap-2 md:gap-3">
+      <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/10 flex items-center justify-center text-zinc-200 font-bold border border-zinc-300/20 text-xs md:text-sm drop-shadow-sm">
         {name.charAt(0).toUpperCase()}
       </div>
       <div>
-        <h4 className="text-white font-bold text-sm md:text-base capitalize">{name}</h4>
-        <span className="text-[#0CCA4A] text-xs font-semibold uppercase tracking-wider">Cliente</span>
+        <h4 className="text-white font-bold text-xs md:text-base capitalize">{name}</h4>
       </div>
     </div>
   </div>
@@ -58,7 +57,7 @@ export function Testimonials() {
   return (
     <section className="py-20 bg-zinc-950 relative overflow-hidden border-t border-zinc-800/50">
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0CCA4A]/10 via-zinc-950 to-zinc-950"></div>
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-400/10 via-zinc-950 to-zinc-950"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -74,9 +73,9 @@ export function Testimonials() {
           <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-zinc-950 to-transparent z-20 pointer-events-none" />
           <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-zinc-950 to-transparent z-20 pointer-events-none" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             <MarqueeColumn items={col1} />
-            <MarqueeColumn items={col2} reverse={true} className="hidden md:block" />
+            <MarqueeColumn items={col2} reverse={true} />
             <MarqueeColumn items={col3} className="hidden lg:block" />
           </div>
         </div>
