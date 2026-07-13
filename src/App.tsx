@@ -4,6 +4,7 @@ import { MapPin, CheckCircle2, ChevronRight, ArrowLeft, Instagram, ChevronLeft, 
 import useEmblaCarousel from 'embla-carousel-react';
 import { locations, plans, servicesList, professionals } from './data';
 import type { Location, Plan } from './types';
+import { Testimonials } from './Testimonials';
 
 interface UnitSelectorProps {
   selectedId: string | undefined;
@@ -570,6 +571,9 @@ export default function App() {
       </AnimatePresence>
 
       </section>
+
+      {/* DEPOIMENTOS */}
+      <Testimonials />
 
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
