@@ -33,18 +33,19 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
                 : 'border-zinc-800/50 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-700/80 hover:shadow-xl'
               }`}
           >
-            <div className="aspect-[16/9] w-full overflow-hidden">
+            <div className="aspect-[4/3] sm:aspect-[16/9] w-full overflow-hidden">
               <img
                 src={loc.imageUrl}
                 alt={loc.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover sm:object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85" />
+              <div className="absolute inset-0 bg-black/20 sm:bg-transparent z-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85 z-0" />
             </div>
             
-            <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-6">
+            <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-6 z-10">
               <h3 className="font-serif text-sm sm:text-2xl font-bold text-white mb-1 sm:mb-2 flex items-center justify-between">
-                <span className="truncate pr-2">{loc.name.replace('Comper ', '')}</span>
+                <span className="truncate pr-2">{loc.name.replace('Comper ', 'Unidade ')}</span>
                 <motion.div
                   animate={{ opacity: selectedId === loc.id ? 1 : 0 }}
                   className="text-zinc-300 bg-zinc-900/50 backdrop-blur-sm border border-zinc-300/30 p-1 rounded-full shadow-[0_0_10px_rgba(228,228,231,0.1)] shrink-0"
@@ -64,7 +65,7 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="w-fit inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-300/50 text-[9px] sm:text-xs font-bold text-zinc-300 hover:text-zinc-100 hover:shadow-[0_0_10px_rgba(228,228,231,0.1)] transition-all duration-300"
+                      className="hidden md:inline-flex w-fit items-center gap-1 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/80 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-300/50 text-[9px] sm:text-xs font-bold text-zinc-300 hover:text-zinc-100 hover:shadow-[0_0_10px_rgba(228,228,231,0.1)] transition-all duration-300"
                     >
                       Como chegar
                       <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
@@ -383,7 +384,8 @@ export default function App() {
       <section id="sobre" className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-6">Sobre <span className="text-zinc-300">nós:</span></h2>
+            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-2">Sobre <span className="text-zinc-300">nós:</span></h2>
+            <h3 className="font-serif text-xl md:text-2xl text-zinc-300 mb-6 font-medium">Experiência, conforto e praticidade</h3>
             <p className="text-zinc-400 mb-6 leading-relaxed">
               A Veneza Barbearia é um espaço acolhedor e o nosso objetivo é oferecer praticidade aos clientes, para que não precisem se preocupar com disponibilidade de horários, estacionamento ou encontrar os melhores planos de assinatura.
             </p>
@@ -524,11 +526,11 @@ export default function App() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex flex-col bg-zinc-900/80 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-300/50 transition-colors"
                   >
-                    <div className="h-48 relative overflow-hidden">
+                    <div className="h-56 relative overflow-hidden">
                       <img
                         src={plan.imageUrl}
                         alt={plan.name}
-                        className="w-full h-full object-cover"
+                        className={`w-full h-full object-cover ${plan.imageClassName || ''}`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent" />
                       <div className="absolute bottom-4 left-6">
@@ -536,17 +538,17 @@ export default function App() {
                       </div>
                     </div>
                     
-                    <div className="p-6 flex-grow flex flex-col">
-                      <div className="mb-6 border-b border-zinc-800 pb-6 flex items-end gap-1">
+                    <div className="p-4 sm:p-5 flex-grow flex flex-col">
+                      <div className="mb-4 border-b border-zinc-800 pb-4 flex items-end gap-1">
                         <span className="text-4xl font-bold text-white font-serif">R$ {plan.price.toFixed(2).replace('.', ',')}</span>
                         <span className="text-zinc-500 mb-1">/ mês</span>
                       </div>
                       
-                      <p className="text-zinc-400 text-sm mb-6 flex-grow">
+                      <p className="text-zinc-400 text-sm mb-4 flex-grow">
                         {plan.description}
                       </p>
                       
-                      <ul className="space-y-3 mb-8">
+                      <ul className="space-y-2 mb-6">
                         {plan.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-3">
                             <CheckCircle2 className="w-5 h-5 text-zinc-300 shrink-0" />

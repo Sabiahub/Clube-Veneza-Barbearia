@@ -45,6 +45,7 @@ export const plans: Plan[] = [
       'Cancele quando quiser'
     ],
     imageUrl: '/2.jpeg',
+    imageClassName: 'object-top',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/week-corte-de-cabelo-terca-a-quinta/20'
   },
   {
@@ -72,6 +73,7 @@ export const plans: Plan[] = [
       'Cancele quando quiser'
     ],
     imageUrl: '/6.jpeg',
+    imageClassName: 'object-top',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/plano-duo-corte-de-cabelo-sobrancelha-2-/21'
   },
   {
@@ -84,7 +86,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-one-sul-center-avenida.png',
+    imageUrl: '/IMG_1230.webp',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/plano-one-corte-de-cabelo-1-corte-por-me/22'
   },
   {
@@ -98,7 +100,47 @@ export const plans: Plan[] = [
       'Cancele quando quiser'
     ],
     imageUrl: '/plano-careca-real.jpg',
+    imageClassName: 'object-top',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-maquina/23'
+  },
+  {
+    id: 'basic-terca',
+    name: 'Basic - Terça Club',
+    price: 99.90,
+    description: 'Corte de cabelo de terça a quinta-feira.',
+    features: [
+      'Corte Terça a Quinta',
+      'Sem taxa de adesão',
+      'Cancele quando quiser'
+    ],
+    imageUrl: '/IMG_1230.webp',
+    checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/basic-terca-feira-corte/43'
+  },
+  {
+    id: 'combo-one',
+    name: 'Combo One',
+    price: 85.00,
+    description: 'Corte e barba 1x no mês.',
+    features: [
+      '1 Corte + 1 Barba/mês',
+      'Sem taxa de adesão',
+      'Cancele quando quiser'
+    ],
+    imageUrl: '/N2.webp',
+    checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/combo-one-corte-e-barba-1x-no-mes/44'
+  },
+  {
+    id: 'smart-2x',
+    name: 'Smart',
+    price: 159.90,
+    description: 'Cabelo e barba 2x por mês.',
+    features: [
+      '2 Cortes e 2 Barbas/mês',
+      'Sem taxa de adesão',
+      'Cancele quando quiser'
+    ],
+    imageUrl: '/N4.webp',
+    checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/smart-cabelo-e-barba-2x-por-mes/46'
   },
 
   // Planos - Bela Vista (Exclusivos)
@@ -127,6 +169,7 @@ export const plans: Plan[] = [
       'Cancele quando quiser'
     ],
     imageUrl: '/12.jpeg',
+    imageClassName: 'object-center',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/smart-2-cortes-e-2-barbas-somente-unidad/39'
   },
   {
@@ -139,7 +182,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-cabelo-barba-belavista.jpg',
+    imageUrl: '/IMG_1230.webp',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/corte-ilimitado-somente-unidade-bela-vis/24'
   },
   {
@@ -166,7 +209,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/9.jpeg',
+    imageUrl: '/IMG_1106.webp',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/cabelo-e-barba-ilimitado-somente-unidade/26'
   },
   {
@@ -205,7 +248,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/plano-corte.jpg',
+    imageUrl: '/N4.webp',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/combo-one-1-corte-barba-por-mes-somente-/45'
   },
   {
@@ -219,12 +262,13 @@ export const plans: Plan[] = [
       'Cancele quando quiser'
     ],
     imageUrl: '/plano-careca-real.jpg',
+    imageClassName: 'object-center',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/careca-club-somente-unidade-bela-vista/41'
   }
 ];
 
 const mainPlansIds = [
-  'black', 'premium', 'week', 'barba-ili', 'duo', 'one', 'careca'
+  'black', 'premium', 'week', 'barba-ili', 'duo', 'one', 'careca', 'basic-terca', 'combo-one', 'smart-2x'
 ];
 
 const belaVistaPlansIds = [

@@ -14,6 +14,7 @@ export interface Plan {
   description: string;
   features: string[];
   imageUrl: string;
+  imageClassName?: string;
   checkoutUrl: string;
 }
 
