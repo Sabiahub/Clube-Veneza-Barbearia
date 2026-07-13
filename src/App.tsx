@@ -383,10 +383,12 @@ export default function App() {
       <section id="sobre" className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-zinc-500 font-serif text-xl mb-4 block">Sobre a Veneza Barbearia</span>
-            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-6">Tradição, Estilo e <span className="text-zinc-300">Excelência</span></h2>
+            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-6">Sobre <span className="text-zinc-300">nós:</span></h2>
             <p className="text-zinc-400 mb-6 leading-relaxed">
-              Fundada com o propósito de elevar a experiência de cuidados masculinos, a Clube Veneza une o melhor da barbearia clássica com um modelo inovador de assinaturas. Nossa meta é garantir que você esteja sempre na sua melhor versão.
+              A Veneza Barbearia é um espaço acolhedor e o nosso objetivo é oferecer praticidade aos clientes, para que não precisem se preocupar com disponibilidade de horários, estacionamento ou encontrar os melhores planos de assinatura.
+            </p>
+            <p className="text-zinc-400 mb-6 leading-relaxed">
+              Entregar uma experiência de excelência é o nosso principal compromisso. Por isso, realizamos treinamentos periódicos com nossas equipes, garantindo um padrão de atendimento que faz com que cada cliente se sinta bem-vindo e à vontade em qualquer uma de nossas unidades.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Quatro unidades bem localizadas</li>
@@ -425,12 +427,12 @@ export default function App() {
             <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
               <Zap className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
               <h3 className="text-xl font-bold text-white mb-3">Uso Ilimitado</h3>
-              <p className="text-zinc-400 text-sm">Sempre com o visual em dia. Venha quantas vezes precisar durante o mês em nossos planos ilimitados.</p>
+              <p className="text-zinc-400 text-sm">Você sempre impecável, use o quanto quiser.</p>
             </div>
             <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
               <Calendar className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
               <h3 className="text-xl font-bold text-white mb-3">Praticidade</h3>
-              <p className="text-zinc-400 text-sm">Agendamento rápido via app e pagamento automático. Sem surpresas na hora de pagar.</p>
+              <p className="text-zinc-400 text-sm">Agendamento fácil pelo app ou whatsapp, sem fechar ao meio dia, estacionamento.</p>
             </div>
             <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
               <Sparkles className="w-10 h-10 text-zinc-400 mb-6 mx-auto" />
@@ -589,11 +591,20 @@ export default function App() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {servicesList.map((service, idx) => {
               const IconComponent = service.icon;
+              const wppMessage = encodeURIComponent(`Olá, tenho interesse no serviço de ${service.name}. Pode me ajudar?`);
+              const wppUrl = `https://wa.me/5549999277782?text=${wppMessage}`;
               return (
-              <div key={idx} className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-zinc-300/40 hover:bg-zinc-800/60 transition-all duration-300 group cursor-pointer h-32 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)]">
-                <IconComponent className="w-8 h-8 text-zinc-300/50 mb-3 group-hover:text-zinc-300 transition-colors group-hover:scale-110 duration-300" />
-                <span className="text-sm font-semibold text-zinc-200">{service.name}</span>
-              </div>
+              <a 
+                href={wppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={idx} 
+                className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-xl p-4 flex flex-col items-center justify-center text-center hover:border-zinc-300/40 hover:bg-zinc-800/60 transition-all duration-300 group cursor-pointer h-32 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)]"
+              >
+                <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-zinc-300/50 mb-2 group-hover:text-zinc-300 transition-colors group-hover:scale-110 duration-300" />
+                <span className="text-xs md:text-sm font-semibold text-zinc-200">{service.name}</span>
+                <span className="text-[10px] md:text-xs text-[#0CCA4A] mt-1 font-bold">R$ {service.price.toFixed(2).replace('.', ',')}</span>
+              </a>
             )})}
           </div>
         </div>
@@ -614,7 +625,7 @@ export default function App() {
             <span className="text-zinc-500 font-serif text-xl mb-4 block">Expansão</span>
             <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Seja um <span className="text-zinc-300">Franqueado</span></h2>
             <p className="text-zinc-400 mb-8">
-              Faça parte da rede de barbearias que mais cresce na região. Leve o modelo inovador de assinaturas da Clube Veneza para a sua cidade com suporte completo e modelo de negócios validado.
+              Faça parte da rede de barbearias que mais cresce na região. Leve o modelo inovador de assinaturas para a sua cidade com suporte completo e modelo de negócios validado.
             </p>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-zinc-900/50 border border-zinc-800 p-4 rounded-xl">
@@ -640,13 +651,12 @@ export default function App() {
           <span className="text-zinc-500 font-serif text-xl mb-4 block">Formação Profissional</span>
           <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-6">Curso de <span className="text-zinc-300">Barbeiro</span></h2>
           <p className="text-zinc-400 max-w-2xl mx-auto mb-12">
-            Aprenda as técnicas mais avançadas do mercado com os especialistas da Clube Veneza. Do zero ao avançado, prepare-se para uma carreira de sucesso.
+            Aprenda as técnicas mais avançadas do mercado com os especialistas da Veneza Barbearia. Do zero ao avançado, prepare-se para uma carreira de sucesso.
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto text-left">
             {[
               { title: 'Técnicas de Corte', desc: 'Fade, degradê e uso preciso da tesoura.' },
-              { title: 'Visagismo', desc: 'Identificação de perfis de rosto e adequação do corte.' },
               { title: 'Barboterapia', desc: 'Técnicas de toalha quente e alinhamento.' },
               { title: 'Gestão e Atendimento', desc: 'Como fidelizar clientes e gerir sua bancada.' }
             ].map((module, i) => (
@@ -788,9 +798,9 @@ export default function App() {
             
             {/* Unidade Sul */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Sul (Comper Sul)</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Unidade Sul</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Comper Sul</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Unidade Sul</span>
                 <span className="block">Av. Nereu Ramos, 1271D</span>
                 <span className="block">Sala 03, Bairro Palmital</span>
                 <span className="block">Chapecó/SC</span>
@@ -801,9 +811,9 @@ export default function App() {
 
             {/* Unidade Center */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Center (Comper Center)</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Unidade Center</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Comper Center</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Unidade Center</span>
                 <span className="block">Rua Rui Barbosa, 441E</span>
                 <span className="block">Centro (dentro do Celeiro Center)</span>
                 <span className="block">Chapecó/SC</span>
@@ -812,11 +822,11 @@ export default function App() {
               </p>
             </div>
 
-            {/* Unidade Brasão Avenida */}
+            {/* Unidade Avenida */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Brasão Avenida</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Unidade Avenida</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Brasão Avenida</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Unidade Avenida</span>
                 <span className="block">Av. Getúlio Dorneles Vargas, 3430</span>
                 <span className="block">Centro, Chapecó/SC</span>
                 <span className="block text-zinc-500 mt-1.5">Seg, Qua e Qui: 9h às 21h</span>
@@ -828,9 +838,9 @@ export default function App() {
 
             {/* Unidade Bela Vista */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Bela Vista</h4>
+              <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-wider border-b border-zinc-800/80 pb-1 w-full">Unidade Bela Vista</h4>
               <p className="text-zinc-400 text-xs leading-relaxed space-y-1">
-                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Bela Vista</span>
+                <span className="block text-zinc-300 font-medium">Veneza Barbearia – Unidade Bela Vista</span>
                 <span className="block">Travessa Assis Chateaubriand, 21</span>
                 <span className="block">Bairro Bela Vista</span>
                 <span className="block">Chapecó/SC</span>

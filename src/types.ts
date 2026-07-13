@@ -26,6 +26,7 @@ export interface Professional {
 
 export interface Service {
   name: string;
+  price: number;
   icon: any; // Lucide icon component
 }
 

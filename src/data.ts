@@ -228,7 +228,7 @@ const mainPlansIds = [
 ];
 
 const belaVistaPlansIds = [
-  'bv-vip', 'bv-smart', 'bv-corte-ili', 'bv-week', 'bv-cabelo-barba', 'bv-barba-ili', 'bv-one', 'bv-combo-one', 'bv-careca'
+  'bv-vip', 'bv-corte-ili', 'bv-careca', 'bv-week', 'bv-cabelo-barba', 'bv-smart', 'bv-barba-ili', 'bv-one', 'bv-combo-one'
 ];
 
 export const locations: Location[] = [
@@ -267,20 +267,20 @@ export const locations: Location[] = [
 ];
 
 export const servicesList: Service[] = [
-  { name: 'CORTE', icon: Scissors },
-  { name: 'BARBA', icon: Zap },
-  { name: 'COMBO', icon: PlusSquare },
-  { name: 'BARBA RÁPIDA', icon: Zap },
-  { name: 'CORTE RASPADO', icon: Scissors },
-  { name: 'DEPILAÇÃO NARIZ', icon: Smile },
-  { name: 'DEPILAÇÃO NARIZ ORELHA', icon: Smile },
-  { name: 'LIMPEZA DE PELE', icon: Sparkles },
-  { name: 'HIDRATAÇÃO', icon: Droplets },
-  { name: 'SELAGEM CAPILAR', icon: Sparkles },
-  { name: 'PEZINHO', icon: Scissors },
-  { name: 'PIGMENTAÇÃO DA BARBA', icon: Paintbrush },
-  { name: 'RELAXAMENTO CAPILAR', icon: Wind },
-  { name: 'SOBRANCELHA', icon: Scissors }
+  { name: 'CORTE', price: 50, icon: Scissors },
+  { name: 'BARBA', price: 45, icon: Zap },
+  { name: 'COMBO', price: 90, icon: PlusSquare },
+  { name: 'BARBA RÁPIDA', price: 30, icon: Zap },
+  { name: 'CORTE RASPADO', price: 30, icon: Scissors },
+  { name: 'DEPILAÇÃO NARIZ', price: 20, icon: Smile },
+  { name: 'DEPILAÇÃO NARIZ ORELHA', price: 30, icon: Smile },
+  { name: 'LIMPEZA DE PELE', price: 50, icon: Sparkles },
+  { name: 'HIDRATAÇÃO', price: 25, icon: Droplets },
+  { name: 'SELAGEM CAPILAR', price: 130, icon: Sparkles },
+  { name: 'PEZINHO', price: 10, icon: Scissors },
+  { name: 'PIGMENTAÇÃO DA BARBA', price: 40, icon: Paintbrush },
+  { name: 'RELAXAMENTO CAPILAR', price: 40, icon: Wind },
+  { name: 'SOBRANCELHA', price: 15, icon: Scissors }
 ];
 
 export const professionals: Professional[] = [
