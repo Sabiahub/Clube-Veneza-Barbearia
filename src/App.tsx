@@ -603,7 +603,7 @@ export default function App() {
               >
                 <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-zinc-300/50 mb-2 group-hover:text-zinc-300 transition-colors group-hover:scale-110 duration-300" />
                 <span className="text-xs md:text-sm font-semibold text-zinc-200">{service.name}</span>
-                <span className="text-[10px] md:text-xs text-[#0CCA4A] mt-1 font-bold">R$ {service.price.toFixed(2).replace('.', ',')}</span>
+                <span className="text-[10px] md:text-xs text-zinc-400 mt-1 font-medium">R$ {service.price.toFixed(2).replace('.', ',')}</span>
               </a>
             )})}
           </div>
