@@ -24,7 +24,7 @@ const TestimonialCard = ({ name, text }: { name: string, text: string }) => (
   <div className="bg-zinc-900/60 backdrop-blur-md border border-zinc-800/80 p-4 md:p-6 rounded-2xl mb-4 relative hover:border-zinc-500/50 transition-colors shadow-lg">
     <div className="flex gap-1 mb-2 md:mb-3">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-zinc-300 text-zinc-300 drop-shadow-[0_0_5px_rgba(212,212,216,0.6)]" />
+        <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.4)]" />
       ))}
     </div>
     <p className="text-zinc-300 text-xs md:text-base leading-relaxed mb-3 md:mb-4 italic">"{text}"</p>

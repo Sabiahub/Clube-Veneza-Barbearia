@@ -5,6 +5,7 @@ export interface Location {
   imageUrl: string;
   planIds: string[];
   mapsUrl?: string;
+  imageClassName?: string;
 }
 
 export interface Plan {

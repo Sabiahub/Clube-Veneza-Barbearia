@@ -107,9 +107,9 @@ export const plans: Plan[] = [
     id: 'basic-terca',
     name: 'Basic - Terça Club',
     price: 99.90,
-    description: 'Corte de cabelo de terça a quinta-feira.',
+    description: 'Corte de cabelo somente na terça-feira.',
     features: [
-      'Corte Terça a Quinta',
+      'Corte Terça-Feira',
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
@@ -119,7 +119,7 @@ export const plans: Plan[] = [
   {
     id: 'combo-one',
     name: 'Combo One',
-    price: 85.00,
+    price: 109.90,
     description: 'Corte e barba 1x no mês.',
     features: [
       '1 Corte + 1 Barba/mês',
@@ -132,7 +132,7 @@ export const plans: Plan[] = [
   {
     id: 'smart-2x',
     name: 'Smart',
-    price: 159.90,
+    price: 199.90,
     description: 'Cabelo e barba 2x por mês.',
     features: [
       '2 Cortes e 2 Barbas/mês',
@@ -297,6 +297,7 @@ export const locations: Location[] = [
     name: 'Unidade Avenida',
     address: 'Av. Getúlio Dorneles Vargas, 3430 - Centro, Chapecó - SC, 89802-001',
     imageUrl: '/Avenida.jpeg',
+    imageClassName: 'object-top',
     planIds: mainPlansIds,
     mapsUrl: 'https://share.google/x7u0gNG0E4ANDmXNI',
   },

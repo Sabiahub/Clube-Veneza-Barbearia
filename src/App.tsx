@@ -37,7 +37,7 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
               <img
                 src={loc.imageUrl}
                 alt={loc.name}
-                className="w-full h-full object-cover sm:object-cover transition-transform duration-700 group-hover:scale-105"
+                className={`w-full h-full object-cover sm:object-cover transition-transform duration-700 group-hover:scale-105 ${loc.imageClassName || ''}`}
               />
               <div className="absolute inset-0 bg-black/20 sm:bg-transparent z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-85 z-0" />
@@ -84,6 +84,7 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const [selectedTeamLocation, setSelectedTeamLocation] = useState<Location | null>(null);
+  const [isSobreOpen, setIsSobreOpen] = useState(false);
 
   useEffect(() => {
     if (selectedLocation) {
@@ -385,11 +386,25 @@ export default function App() {
       </section>
 
             {/* SOBRE */}
-      <section id="sobre" className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-2">Sobre <span className="text-zinc-300">nós:</span></h2>
-            <h3 className="font-serif text-xl md:text-2xl text-zinc-300 mb-6 font-medium">Experiência, conforto e praticidade</h3>
+      <section id="sobre" className="py-12 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
+          <button onClick={() => setIsSobreOpen(!isSobreOpen)} className="flex items-center gap-2 font-sans text-2xl md:text-3xl font-bold text-white mb-2 bg-zinc-800/50 hover:bg-zinc-800 px-6 py-3 rounded-full transition-all border border-zinc-700/50">
+            Sobre <span className="text-zinc-300">nós</span>
+            <ChevronRight className={`w-6 h-6 transition-transform ${isSobreOpen ? 'rotate-90' : ''}`} />
+          </button>
+          
+          <AnimatePresence>
+            {isSobreOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full overflow-hidden"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-8">
+                  <div>
+                    <h3 className="font-serif text-xl md:text-2xl text-zinc-300 mb-6 font-medium">Experiência, conforto e praticidade</h3>
             <p className="text-zinc-400 mb-6 leading-relaxed">
               A Veneza Barbearia é um espaço acolhedor e o nosso objetivo é oferecer praticidade aos clientes, para que não precisem se preocupar com disponibilidade de horários, estacionamento ou encontrar os melhores planos de assinatura.
             </p>
@@ -417,6 +432,10 @@ export default function App() {
               </div>
             </div>
           </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -427,7 +446,7 @@ export default function App() {
         </div>
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <span className="text-zinc-500 font-serif text-xl mb-4 block">O Clube</span>
-          <h2 className="font-adam text-3xl md:text-5xl font-bold text-white mb-12">Por que ser um <span className="text-zinc-300">Assinante?</span></h2>
+          <h2 className="font-sans text-3xl md:text-5xl font-bold text-white mb-12">Por que ser um <span className="text-zinc-300">Assinante?</span></h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 hover:bg-zinc-800/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(228,228,231,0.05)] text-center">
@@ -508,7 +527,7 @@ export default function App() {
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-2 relative z-10">
                   Planos Disponíveis
                 </h2>
-                <p className="text-zinc-300 font-medium relative z-10">Unidade: {selectedLocation.name}</p>
+                <p className="text-zinc-300 font-medium relative z-10">Unidade: {selectedLocation.name.replace('Unidade ', '')}</p>
                 {selectedLocation.mapsUrl && (
                   <a
                     href={selectedLocation.mapsUrl}
@@ -580,8 +599,78 @@ export default function App() {
 
       </section>
 
-      {/* DEPOIMENTOS */}
-      <Testimonials />
+      {/* PROFESSIONALS */}
+      <section className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-adam text-3xl md:text-4xl font-bold text-white mb-4">Nossa Equipe</h2>
+            <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
+          </div>
+
+          <div className="mb-12 -mx-6 md:mx-0 border-b border-zinc-800/50">
+            <div className="flex overflow-x-auto no-scrollbar">
+              <div className="flex gap-6 md:gap-12 px-6 md:px-0 md:mx-auto min-w-max">
+              {locations.map((loc) => (
+                <button
+                  key={loc.id}
+                  onClick={() => setSelectedTeamLocation(loc)}
+                  className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedTeamLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  {loc.name.replace('Unidade ', '').replace('Comper ', '')}
+                  {selectedTeamLocation?.id === loc.id && (
+                    <motion.div layoutId="activeTeamTab" className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
+                  )}
+                </button>
+              ))}
+              </div>
+            </div>
+          </div>
+          
+          {selectedTeamLocation ? (
+            <div className="relative max-w-6xl mx-auto group">
+              <div className="overflow-hidden" ref={teamRef}>
+                <div className="flex gap-6 py-4 px-2">
+                  {professionals
+                    .filter((prof) => prof.locationId === selectedTeamLocation.id)
+                    .map((prof, idx) => (
+                      <div 
+                        key={idx} 
+                        className="flex-[0_0_70%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_22%] min-w-0 bg-zinc-900/80 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-300/50 transition-colors group/card relative shadow-md"
+                      >
+                        <div className="aspect-[4/5] w-full overflow-hidden relative">
+                          <img
+                            src={prof.imageUrl}
+                            alt={prof.name}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                          />
+                        </div>
+                        <div className="p-5 text-center bg-zinc-900 relative z-10 border-t border-zinc-800/50 group-hover/card:bg-zinc-800/80 transition-colors">
+                          <h3 className="font-serif text-xl font-bold text-white">{prof.name}</h3>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              
+              {/* Navigation Arrows (Desktop Only) */}
+              {professionals.filter((prof) => prof.locationId === selectedTeamLocation.id).length > 4 && (
+                <>
+                  <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-zinc-500 border border-zinc-800 border-dashed rounded-2xl max-w-md mx-auto">
+              <p>Selecione uma unidade acima para ver a nossa equipe.</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* SERVICES */}
       <section className="py-20 relative bg-zinc-950 border-t border-zinc-800/50 overflow-hidden">
@@ -609,7 +698,7 @@ export default function App() {
               >
                 <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-zinc-300/50 mb-2 group-hover:text-zinc-300 transition-colors group-hover:scale-110 duration-300" />
                 <span className="text-xs md:text-sm font-semibold text-zinc-200">{service.name}</span>
-                <span className="text-[10px] md:text-xs text-zinc-400 mt-1 font-medium">R$ {service.price.toFixed(2).replace('.', ',')}</span>
+                {/* <span className="text-[10px] md:text-xs text-zinc-400 mt-1 font-medium">R$ {service.price.toFixed(2).replace('.', ',')}</span> */}
               </a>
             )})}
           </div>
@@ -715,78 +804,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* PROFESSIONALS */}
-      <section className="py-20 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-adam text-3xl md:text-4xl font-bold text-white mb-4">Nossa Equipe</h2>
-            <p className="text-zinc-400">Conheça os especialistas que vão cuidar do seu visual.</p>
-          </div>
-
-          <div className="mb-12 -mx-6 md:mx-0 border-b border-zinc-800/50">
-            <div className="flex overflow-x-auto no-scrollbar">
-              <div className="flex gap-6 md:gap-12 px-6 md:px-0 md:mx-auto min-w-max">
-              {locations.map((loc) => (
-                <button
-                  key={loc.id}
-                  onClick={() => setSelectedTeamLocation(loc)}
-                  className={`py-4 px-2 whitespace-nowrap text-sm md:text-base font-bold transition-colors relative ${selectedTeamLocation?.id === loc.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
-                >
-                  {loc.name.replace('Unidade ', '').replace('Comper ', '')}
-                  {selectedTeamLocation?.id === loc.id && (
-                    <motion.div layoutId="activeTeamTab" className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-zinc-300 rounded-t-full" />
-                  )}
-                </button>
-              ))}
-              </div>
-            </div>
-          </div>
-          
-          {selectedTeamLocation ? (
-            <div className="relative max-w-6xl mx-auto group">
-              <div className="overflow-hidden" ref={teamRef}>
-                <div className="flex gap-6 py-4 px-2">
-                  {professionals
-                    .filter((prof) => prof.locationId === selectedTeamLocation.id)
-                    .map((prof, idx) => (
-                      <div 
-                        key={idx} 
-                        className="flex-[0_0_70%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_22%] min-w-0 bg-zinc-900/80 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-300/50 transition-colors group/card relative shadow-md"
-                      >
-                        <div className="aspect-[4/5] w-full overflow-hidden relative">
-                          <img
-                            src={prof.imageUrl}
-                            alt={prof.name}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                          />
-                        </div>
-                        <div className="p-5 text-center bg-zinc-900 relative z-10 border-t border-zinc-800/50 group-hover/card:bg-zinc-800/80 transition-colors">
-                          <h3 className="font-serif text-xl font-bold text-white">{prof.name}</h3>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </div>
-              
-              {/* Navigation Arrows (Desktop Only) */}
-              {professionals.filter((prof) => prof.locationId === selectedTeamLocation.id).length > 4 && (
-                <>
-                  <button onClick={scrollPrevTeam} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button onClick={scrollNextTeam} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-300/50 hover:bg-zinc-800/80 transition-all duration-300 z-10 shadow-lg shadow-zinc-950/50 opacity-0 group-hover:opacity-100 hover:shadow-[0_0_15px_rgba(228,228,231,0.15)]">
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </>
-              )}
-            </div>
-          ) : (
-            <div className="text-center py-12 text-zinc-500 border border-zinc-800 border-dashed rounded-2xl max-w-md mx-auto">
-              <p>Selecione uma unidade acima para ver a nossa equipe.</p>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* DEPOIMENTOS */}
+      <Testimonials />
 
       {/* FOOTER */}
       <footer className="py-16 border-t border-zinc-800/50 bg-zinc-950 relative overflow-hidden">
