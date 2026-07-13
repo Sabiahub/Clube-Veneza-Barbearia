@@ -84,7 +84,6 @@ function UnitSelector({ selectedId, onSelect }: UnitSelectorProps) {
 export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const [selectedTeamLocation, setSelectedTeamLocation] = useState<Location | null>(null);
-  const [isSobreOpen, setIsSobreOpen] = useState(false);
 
   useEffect(() => {
     if (selectedLocation) {
@@ -105,7 +104,7 @@ export default function App() {
 
 
   const navLinks = [
-    { id: 'sobre', label: 'Sobre' },
+    { id: 'sobre', label: 'Sobre', path: '/sobre-nos' },
     { id: 'clube', label: 'Clube' },
     { id: 'unidades-flow', label: 'Unidades' },
     { id: 'franqueado', label: 'Seja um Franqueado' },
@@ -137,7 +136,11 @@ export default function App() {
     return () => observer.disconnect();
   }, [activeSection]);
 
-  const handleNavClick = (targetId: string) => {
+  const handleNavClick = (targetId: string, path?: string) => {
+    if (path) {
+      window.location.href = path;
+      return;
+    }
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -192,7 +195,7 @@ export default function App() {
             {navLinks.map(link => (
               <button
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
+                onClick={() => handleNavClick(link.id, link.path)}
                 className={`text-sm font-semibold transition-colors duration-300 relative ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
               >
                 {link.label}
@@ -263,7 +266,7 @@ export default function App() {
                     <button
                       key={link.id}
                       onClick={() => {
-                        handleNavClick(link.id);
+                        handleNavClick(link.id, link.path);
                         setIsMenuOpen(false);
                       }}
                       className={`text-lg font-bold text-left transition-colors ${activeSection === link.id ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-300'}`}
@@ -382,60 +385,6 @@ export default function App() {
               Conheça nossos planos
             </button>
           </motion.div>
-        </div>
-      </section>
-
-            {/* SOBRE */}
-      <section id="sobre" className="py-12 relative bg-zinc-900/30 border-t border-zinc-800/50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
-          <button onClick={() => setIsSobreOpen(!isSobreOpen)} className="flex items-center gap-2 font-sans text-2xl md:text-3xl font-bold text-white mb-2 bg-zinc-800/50 hover:bg-zinc-800 px-6 py-3 rounded-full transition-all border border-zinc-700/50">
-            Sobre <span className="text-zinc-300">nós</span>
-            <ChevronRight className={`w-6 h-6 transition-transform ${isSobreOpen ? 'rotate-90' : ''}`} />
-          </button>
-          
-          <AnimatePresence>
-            {isSobreOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full overflow-hidden"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-8">
-                  <div>
-                    <h3 className="font-serif text-xl md:text-2xl text-zinc-300 mb-6 font-medium">Experiência, conforto e praticidade</h3>
-            <p className="text-zinc-400 mb-6 leading-relaxed">
-              A Veneza Barbearia é um espaço acolhedor e o nosso objetivo é oferecer praticidade aos clientes, para que não precisem se preocupar com disponibilidade de horários, estacionamento ou encontrar os melhores planos de assinatura.
-            </p>
-            <p className="text-zinc-400 mb-6 leading-relaxed">
-              Entregar uma experiência de excelência é o nosso principal compromisso. Por isso, realizamos treinamentos periódicos com nossas equipes, garantindo um padrão de atendimento que faz com que cada cliente se sinta bem-vindo e à vontade em qualquer uma de nossas unidades.
-            </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Quatro unidades bem localizadas</li>
-              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Profissionais altamente capacitados</li>
-              <li className="flex items-center gap-3 text-zinc-300"><CheckCircle2 className="w-5 h-5 text-zinc-500" /> Ambiente premium e acolhedor</li>
-            </ul>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-800 border border-zinc-800/50">
-              <img src="/plano-cabelo-barba-belavista.jpg" alt="Barbearia Veneza" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 flex flex-row gap-2 sm:gap-3">
-              <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
-                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+4000</p>
-                <p className="text-zinc-400 text-[9px] sm:text-xs uppercase tracking-wider">Atendimentos/mês</p>
-              </div>
-              <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col items-center text-center">
-                <p className="text-xl sm:text-3xl font-bold font-serif text-white mb-1">+650</p>
-                <p className="text-zinc-400 text-[9px] sm:text-xs uppercase tracking-wider">Assinantes</p>
-              </div>
-            </div>
-          </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </section>
 
