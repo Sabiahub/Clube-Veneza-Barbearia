@@ -330,9 +330,11 @@ export default function App() {
                 {/* Main Title */}
                 <h1 className="text-[2.75rem] sm:text-6xl font-bold leading-none relative z-10">
                   {/* Badge "V" (Independente, colado no "C") */}
+                  {/*
                   <div className="absolute top-0 left-0 -translate-x-[5%] sm:-translate-x-[10%] -translate-y-[35%] sm:-translate-y-[45%] w-24 h-24 sm:w-32 sm:h-32 z-20 pointer-events-none">
                     <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain spin-slow" />
                   </div>
+                  */}
 
                   <span className="font-adam text-white block tracking-widest">CLUBE VENEZA</span>
                   <span className="font-eightone text-zinc-300 text-2xl sm:text-3xl block mt-2 sm:mt-3 lowercase tracking-wider">barbearia</span>
@@ -344,15 +346,17 @@ export default function App() {
             {/* DESKTOP TITLE BLOCK (Badge side-by-side)  */}
             {/* ========================================= */}
             <div className="hidden lg:flex w-full justify-center mb-8 px-8">
-              <div className="flex items-center gap-8">
+              <div className="flex flex-col items-center justify-center gap-8">
                 
                 {/* Badge "V" parallel */}
+                {/*
                 <div className="w-40 h-40 z-20 shrink-0">
                   <img src="/sublogo2.png" alt="Veneza Barbearia" className="w-full h-full object-contain drop-shadow-xl spin-slow" />
                 </div>
+                */}
 
                 {/* Text Block */}
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-center items-center">
                   <span className="text-zinc-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4">
                     Bem-vindo ao
                   </span>

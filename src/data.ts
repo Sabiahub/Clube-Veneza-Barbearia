@@ -113,7 +113,7 @@ export const plans: Plan[] = [
       'Sem taxa de adesão',
       'Cancele quando quiser'
     ],
-    imageUrl: '/IMG_1230.webp',
+    imageUrl: '/N1.webp',
     checkoutUrl: 'https://celcash.celcoin.com.br/venezabarbearia/clubeveneza/assinar-plano/basic-terca-feira-corte/43'
   },
   {
