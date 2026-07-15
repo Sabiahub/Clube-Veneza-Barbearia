@@ -297,7 +297,7 @@ export const locations: Location[] = [
     name: 'Unidade Avenida',
     address: 'Av. Getúlio Dorneles Vargas, 3430 - Centro, Chapecó - SC, 89802-001',
     imageUrl: '/Avenida.jpeg',
-    imageClassName: 'object-center',
+    imageClassName: 'object-top',
     planIds: mainPlansIds,
     mapsUrl: 'https://share.google/x7u0gNG0E4ANDmXNI',
   },
