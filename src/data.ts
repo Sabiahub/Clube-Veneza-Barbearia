@@ -340,10 +340,9 @@ export const professionals: Professional[] = [
   // Center
   { name: 'Vini', description: '', imageUrl: '/VINI.webp', locationId: 'loc-center' },
   { name: 'Hasus', description: '', imageUrl: '/HASUS.webp', locationId: 'loc-center' },
-  { name: 'Hiago', description: '', imageUrl: '/HIAGO.webp', locationId: 'loc-center' },
+  { name: 'Caio', description: '', imageUrl: '/CAIO.webp', locationId: 'loc-center' },
   // Sul
   { name: 'Gabriel', description: '', imageUrl: '/GUSTAVO.webp', locationId: 'loc-sul' },
-  { name: 'Eliseu', description: '', imageUrl: '/ELISEU.webp', locationId: 'loc-sul' },
   { name: 'Enzo', description: '', imageUrl: '/ENZO.webp', locationId: 'loc-sul' },
   { name: 'Leonardo', description: '', imageUrl: '/LEONARDO.webp', locationId: 'loc-sul' }
 ];
