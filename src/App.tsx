@@ -578,7 +578,13 @@ export default function App() {
           {selectedTeamLocation ? (
             <div className="relative max-w-6xl mx-auto group">
               <div className="overflow-hidden" ref={teamRef}>
-                <div className="flex gap-6 py-4 px-2">
+                <div 
+                  className={`flex gap-6 py-4 px-2 ${
+                    professionals.filter((prof) => prof.locationId === selectedTeamLocation.id).length <= 4 ? 'lg:justify-center' : ''
+                  } ${
+                    professionals.filter((prof) => prof.locationId === selectedTeamLocation.id).length <= 3 ? 'md:justify-center' : ''
+                  }`}
+                >
                   {professionals
                     .filter((prof) => prof.locationId === selectedTeamLocation.id)
                     .map((prof, idx) => (
